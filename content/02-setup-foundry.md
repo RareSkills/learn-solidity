@@ -43,4 +43,4 @@ One thing that is really cool about it is that you can write unit tests in Solid
 
 If you haven’t already downloaded the following extension, you should!
 
-![Untitled](Free%20Solidity%20Tutorial%20(Latest)%20b6bc0ae51248409cacd0bef4c26c3d8d/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/31d6b1bc-4fcd-4205-b722-ccce31551772)
