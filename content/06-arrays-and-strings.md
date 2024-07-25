@@ -89,7 +89,7 @@ There are some exceptions to using “calldata” in a function argument, but th
 
 Here is how to use arrays of numbers with Remix.
 
-![Untitled](Free%20Solidity%20Tutorial%20(Latest)%20b6bc0ae51248409cacd0bef4c26c3d8d/Untitled%201.png)
+![Untitled 1](https://github.com/user-attachments/assets/a399da3e-cf19-494e-ad4e-6d5dc568722b)
 
 **Arrays are zero indexed like every other language**
 
