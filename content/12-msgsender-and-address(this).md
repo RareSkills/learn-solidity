@@ -25,7 +25,7 @@ contract ERC20Token {
     ) 
         public {
             balances[sender] -= amount;   // deduct/debit the sender's balance
-            balances[receiver] += amount; // credit the reciever's balance
+            balances[receiver] += amount; // credit the receiver's balance
     }
 }
 
@@ -33,7 +33,7 @@ contract ERC20Token {
 
 The issue is that we have no idea who is calling the function.
 
-Luckily, Solidity has a mechanism to identify who is calling the smart contract: **msg.sender**. Msg.sender returns the address of who is invoking the smart contract function.
+Luckily, Solidity has a mechanism to identify who is calling the smart contract: **msg.sender**. msg.sender returns the address of who is invoking the smart contract function.
 
 Try out the following code in remix:
 
