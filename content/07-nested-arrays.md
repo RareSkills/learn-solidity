@@ -66,7 +66,7 @@ contract ExampleContract {
 
 ```
 
-What may be confusing is that when you access a specific item in an array, the order may feel backwards from other languages, but it makes sense if you think about it.
+What may be confusing is that when you access a specific item in an array, the order may feel backward from other languages, but it makes sense if you think about it.
 
 ```solidity
 
@@ -89,7 +89,7 @@ Just like 1D arrays, if you access an out-of-bound area, the transaction will re
 
 Note that nested arrays are extremely rare in practice. If you feel like skipping this section, feel free to.
 
-**Problems**
+**Practice Problems**
 
 [NestedArray](https://github.com/RareSkills/Solidity-Exercises/tree/main/NestedArray)
 
