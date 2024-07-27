@@ -34,7 +34,7 @@ contract ERC20 {
 
 That’s okay, but what if someone wants to deploy the contract and set themselves to be the banker?
 
-Smart contracts have a special function that is called at deployment time called the constructor. This is pretty similar to other object oriented programming languages. Here is what it looks like
+Smart contracts have a special function that is called at deployment time called the constructor. This is pretty similar to other object-oriented programming languages. Here is what it looks like
 
 ```solidity
 
@@ -88,7 +88,7 @@ contract ExampleContract {
 }
 ```
 
-You may be tempted as a response to just use memory everywhere and not bothering to use calldata. But it is worth trying to remember this for now, because calldata results in cheaper transactions (I.e. lower gas fees for the user).
+You may be tempted as a response to just use memory everywhere and not bother to use calldata. But it is worth trying to remember this for now, because calldata results in cheaper transactions (I.e. lower gas fees for the user).
 
 Also, in case you were wondering, **constructors cannot return values.**
 
