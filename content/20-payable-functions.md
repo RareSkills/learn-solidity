@@ -37,7 +37,7 @@ When we click “howMuchEtherIHave” we actually get back
 
 This doesn’t mean we created a ton of Ether out of thin air. Remember floats are not a thing on the blockchain, so Ether uses the same strategy for decimals that ERC20 tokens do. A unit of Ether is actually one Wei, and what we traditionally think of as one Ether is 10^18 Wei.
 
-By the way, the .balance construction works on arbitrary addresses. A smart contract can determine how rich (or poor) you are with the following function
+By the way, the `.balance` construction works on arbitrary addresses. A smart contract can determine how rich (or poor) you are with the following function
 
 ```solidity
 
@@ -109,7 +109,7 @@ contract ExampleContract {
 
 It’s clear how to send Ether if you initiate the transaction from Remix, but what if another smart contract wants to send Ether?
 
-You will use the **call function we described earlier, but with an extra “meta argument.” It may look strange at first, but you’ll get used to it.
+You will use the **call function we described earlier, but with an extra “meta argument”. It may look strange at first, but you’ll get used to it.
 
 ```solidity
 
