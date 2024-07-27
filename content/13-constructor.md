@@ -48,7 +48,7 @@ contract ExampleContract {
 }
 ```
 
-Note that it’s “constructor()” and not “function constructor()” and we don’t specify **public** because constructors can’t be modified with things like pure, view, public, and so forth.
+Note that it’s "constructor()" and not "function constructor()" and we don’t specify **public** because constructors can’t be modified with things like pure, view, public, and so forth.
 
 If you wanted the banker to be configured by the person deploying the contract, then you could use it as a function argument.
 
@@ -66,7 +66,7 @@ contract ExampleContract {
 
 By the way, you’ll see this pattern variable = _variable a lot in constructors. Solidity doesn’t require you to do that, but it’s considered conventional.
 
-When deploying a contract on Remix that has constructor arguments, you’ll have to put the arguments into the box that appears next to “deploy.”
+When deploying a contract on Remix that has constructor arguments, you’ll have to put the arguments into the box that appears next to "deploy."
 
 ![https://static.wixstatic.com/media/61a666_a136b53ad685419582210f02b620e762~mv2.png/v1/crop/x_0,y_0,w_2000,h_973/fill/w_939,h_457,al_c,q_95,enc_auto/Constructor.png](https://static.wixstatic.com/media/61a666_a136b53ad685419582210f02b620e762~mv2.png/v1/crop/x_0,y_0,w_2000,h_973/fill/w_939,h_457,al_c,q_95,enc_auto/Constructor.png)
 
@@ -92,6 +92,6 @@ You may be tempted as a response to just use memory everywhere and not bother to
 
 Also, in case you were wondering, **constructors cannot return values.**
 
-**Problems**
+**Practice Problems**
 
 [Deployer](https://github.com/RareSkills/Solidity-Exercises/tree/main/Deployer)

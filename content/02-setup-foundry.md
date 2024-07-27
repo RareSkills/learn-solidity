@@ -33,7 +33,7 @@ Running 1 test for test/Everythingworks.t.sol:EverythingWorksTest
 Test result: ok. 1 passed; 0 failed; finished in 3.47ms
 ```
 
-**What exactly is “forge” and “foundry” here?**
+**What exactly is "forge" and "foundry" here?**
 
 You can think of it like gulp or webpack for JavaScript or maven for Java or tox for Python. Foundry is a development framework to make testing, development, and deployment easier. Without a doubt, it is the most popular framework in 2023, and absolutely worth knowing as a Solidity developer.
 

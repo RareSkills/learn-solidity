@@ -63,7 +63,7 @@ contract ExampleContract {
 
 ```
 
-Practice Problems
+**Practice Problems**
 
 [IsPrime](https://github.com/RareSkills/Solidity-Exercises/tree/main/IsPrime)
 

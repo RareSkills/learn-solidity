@@ -147,4 +147,4 @@ I know you are dreading the ABI encoding stuff, but I want to show you what happ
 
 The reader is encouraged to do state changing things inside of add to see the transaction revert.
 
-If you have a Java background, this whole bit with interfaces is probably a rather obvious. But it’s important to remember that, behind the scenes, a cross-contract call, with abi encoding, is happening. You aren’t “compiling” another smart contract into your own, like how Java objects would be combined together.
+If you have a Java background, this whole bit with interfaces is probably a rather obvious. But it’s important to remember that, behind the scenes, a cross-contract call, with abi encoding, is happening. You aren’t "compiling" another smart contract into your own, like how Java objects would be combined together.

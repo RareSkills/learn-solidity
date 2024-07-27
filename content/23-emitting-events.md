@@ -1,6 +1,6 @@
 # Emitting Events
 
-Technically, our “ERC20” token is not fully ERC20 compliant. It’s missing an important feature: **events**.
+Technically, our "ERC20" token is not fully ERC20 compliant. It’s missing an important feature: **events**.
 
 General rule of thumb: **If a function causes a state change, it should be logged.**
 
@@ -33,7 +33,7 @@ contract ExampleContract {
 
 An event can have up to 3 indexed types, but there isn’t a strict limit on the number of unindexed parameters.
 
-If you have a database background, you can think of “indexes” exactly the same way you would about a database index.
+If you have a database background, you can think of "indexes" exactly the same way you would about a database index.
 
 By the way, argument names after the datatype is optional. We could have written the event above as
 
@@ -44,7 +44,7 @@ event Deposit(address indexed, uint256);
 
 with no ill effects, except that perhaps it is a bit less readable.
 
-When should a variable be indexed or not? If you might be interested in finding that value quickly, like “has an address been involved with this token contract” then you should index it. You probably are not interested in the question “has anyone ever transferred exactly 1,370,904 tokens in this contract?”, so don’t index the amount. Here is our ERC20 token with the events added. Note that these events are required by the [specification](https://eips.ethereum.org/EIPS/eip-20).
+When should a variable be indexed or not? If you might be interested in finding that value quickly, like "has an address been involved with this token contract" then you should index it. You probably are not interested in the question "has anyone ever transferred exactly 1,370,904 tokens in this contract?", so don’t index the amount. Here is our ERC20 token with the events added. Note that these events are required by the [specification](https://eips.ethereum.org/EIPS/eip-20).
 
 Pay close attention to where the events have been added, especially the mint function! The convention of address(0) being the source means the tokens came into existence out of nothing, rather than from another address. Recommended reading: [https://www.rareskills.io/post/ethereum-events](https://www.rareskills.io/post/ethereum-events)
 

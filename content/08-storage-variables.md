@@ -6,7 +6,7 @@ This would be quite problematic if we were keeping track of something, like how 
 
 Now we introduce the **storage variable.**
 
-These look like “class variables” in other languages, but don’t really behave like them. You can think of them as **variables that behave like a miniature database.**
+These look like "class variables" in other languages, but don’t really behave like them. You can think of them as **variables that behave like a miniature database.**
 
 Let’s look at an example
 

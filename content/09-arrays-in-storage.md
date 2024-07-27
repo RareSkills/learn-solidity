@@ -108,7 +108,7 @@ contract ExampleContract {
 }
 ```
 
-If you want to remove an item and also reduce the length, you must do a “pop and swap”.
+If you want to remove an item and also reduce the length, you must do a "pop and swap".
 
 It removes the element at the index argument and swaps it with the last element in the array
 

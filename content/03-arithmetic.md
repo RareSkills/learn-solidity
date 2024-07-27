@@ -115,7 +115,7 @@ unchecked {
 
 Note that anything inside the unchecked block will not revert even if it overflows or underflows. This is a very advanced feature that you should not use unless you know what you are doing.
 
-Practice Problems
+**Practice Problems**
 
 [Add](https://github.com/RareSkills/Solidity-Exercises/tree/main/Add)
 

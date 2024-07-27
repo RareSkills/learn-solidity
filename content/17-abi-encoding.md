@@ -10,7 +10,7 @@ But I want you to understand what the following things are
 
 - abi.encodeWithSignature
 
-To motivate them, let’s create another smart contract, open the “debug” dropdown, and get a certain piece of information.
+To motivate them, let’s create another smart contract, open the "debug" dropdown, and get a certain piece of information.
 
 ![https://static.wixstatic.com/media/61a666_57ac790548bd46f293823e0574f3e152~mv2.png/v1/fill/w_939,h_447,al_c,q_95,enc_auto/ABI%20Encoding1.png](https://static.wixstatic.com/media/61a666_57ac790548bd46f293823e0574f3e152~mv2.png/v1/fill/w_939,h_447,al_c,q_95,enc_auto/ABI%20Encoding1.png)
 
@@ -32,9 +32,9 @@ When we copy that, we get
 
 **0x92d62db5**
 
-What exactly is this? This is the **function signature** of “meaningOfLifeAndAllExistence()”. We’ll learn later how this is derived.
+What exactly is this? This is the **function signature** of "meaningOfLifeAndAllExistence()". We’ll learn later how this is derived.
 
-Whenever you “call” a smart contract, you are actually sending an ethereum transaction with some data attached so the smart contract knows which function to execute.
+Whenever you "call" a smart contract, you are actually sending an ethereum transaction with some data attached so the smart contract knows which function to execute.
 
 Let’s look at the information from another vantage point.
 
@@ -54,17 +54,17 @@ contract ExampleContract {
 
 ```
 
-We’ve changed the return type to “bytes memory” (don’t worry that we haven’t seen that before), and returned a variable called msg.data (also don’t worry that we haven’t seen that before).
+We’ve changed the return type to "bytes memory" (don’t worry that we haven’t seen that before), and returned a variable called msg.data (also don’t worry that we haven’t seen that before).
 
 The important thing to note is that we get an identical byte sequence back!
 
 So what is happening?
 
-When you call a function in a smart contract, you aren’t actually doing a “function call” per se, you are sending data to the contract with some information about which function should be executed.
+When you call a function in a smart contract, you aren’t actually doing a "function call" per se, you are sending data to the contract with some information about which function should be executed.
 
-Makes sense right? When you fire up your browser wallet and trade ERC20 tokens, there’s no way you can “call a function” on an ERC20 contract remotely. Function calls only happen inside the same execution context. Describing transactions as functions, however, is convenient. But we need to look behind the curtain to see exactly what is happening to really understand Solidity.
+Makes sense right? When you fire up your browser wallet and trade ERC20 tokens, there’s no way you can "call a function" on an ERC20 contract remotely. Function calls only happen inside the same execution context. Describing transactions as functions, however, is convenient. But we need to look behind the curtain to see exactly what is happening to really understand Solidity.
 
-When you “call a smart contract” you are sending data to the contract with instructions for how to execute.
+When you "call a smart contract" you are sending data to the contract with instructions for how to execute.
 
 There are many data encodings, json, xml, protobufs, etc. **Solidity and ethereum use the ABI encoding**.
 
@@ -98,7 +98,7 @@ We get
 
 0xf8689fd30000000000000000000000000000000000000000000000000000000000000007
 
-returned to us. The f8689fd3 portion means call function “takeOneArg” and the 7 with a lot of leading zeros means pass the number 7.
+returned to us. The f8689fd3 portion means call function "takeOneArg" and the 7 with a lot of leading zeros means pass the number 7.
 
 It would be horribly confusing if we had to do this by hand.
 
@@ -158,19 +158,19 @@ contract ExampleContract {
 
 ```
 
-Note that we are using “abi.encode” and “abi.decode”. The “withSignature” bit is when functions are involved, but that is not the case here.
+Note that we are using "abi.encode" and "abi.decode". The "withSignature" bit is when functions are involved, but that is not the case here.
 
 In this example, the variables x and y are abi encoded into
 
 0x0000000000000000000000000000000000000000000000000000000000000005000000000000000000000000000000000000000000000000000000000000000f
 
-The decimal numbers got converted to hex, which is why “5” is still “5” but 15 became “f”.
+The decimal numbers got converted to hex, which is why "5" is still "5" but 15 became "f".
 
-If we know in advance that this is a pair of uint256, we can “decode” it back to a pair using the function screenshotted above.
+If we know in advance that this is a pair of uint256, we can "decode" it back to a pair using the function screenshotted above.
 
 The tuple that appears as the second argument in abi.decode is instructions for how to decode the data. If you provide the wrong datatypes or the wrong length of tuple here, you’ll either get the wrong result, or the code will revert.
 
-**Problems**
+**Practice Problems**
 
 [Encode](https://github.com/RareSkills/Solidity-Exercises/tree/main/Encoder)
 

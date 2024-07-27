@@ -27,7 +27,7 @@ contract ExampleContract {
 }
 ```
     
-After you go to remix.ethereum.org, right click contracts and left click “New File”
+After you go to remix.ethereum.org, right click contracts and left click "New File"
 
 ![https://static.wixstatic.com/media/c0c19a_489ef2f484f548cf888c995d79cd54ac~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/new%20file.png](https://static.wixstatic.com/media/c0c19a_489ef2f484f548cf888c995d79cd54ac~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/new%20file.png)
 

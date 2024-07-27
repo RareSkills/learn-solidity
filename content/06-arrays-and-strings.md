@@ -79,9 +79,9 @@ So what are `calldata` and `memory`?
 
 If you are familiar with C or C++, this concept will be intuitive. Memory in Solidity is like the heap in C, C++, or Rust. Arrays can have unlimited size, so storing them on the execution stack (don’t worry if you don’t know what that is), could lead to a *stackoverflow* error (not to be confused with the famous forum!).
 
-Calldata is something unique to Solidity. It is the actual “transaction data” that is sent when someone transmits a transaction to the blockchain.
+Calldata is something unique to Solidity. It is the actual "transaction data" that is sent when someone transmits a transaction to the blockchain.
 
-Calldata means “refer to the data in the Ethereum transaction itself.” This is a fairly advanced concept, so don’t worry if you don’t fully understand it for now.
+Calldata means "refer to the data in the Ethereum transaction itself." This is a fairly advanced concept, so don’t worry if you don’t fully understand it for now.
 
 When in doubt: the function arguments for arrays and strings should be calldata and the function arguments for the return type should be memory.
 
