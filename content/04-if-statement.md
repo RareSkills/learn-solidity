@@ -1,4 +1,4 @@
-# If Statements
+# If Statements
 
 If statements behave exactly the same as other languages
 
