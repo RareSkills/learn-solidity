@@ -1,4 +1,4 @@
-## Arrays in Storage
+# Arrays in Storage
 
 You may have noticed in our section about arrays we curiously left off
 

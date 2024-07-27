@@ -1,4 +1,4 @@
-## msg.sender and address(this)
+# msg.sender and address(this)
 
 Remember our previous example of a bad ERC20 token?
 

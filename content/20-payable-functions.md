@@ -1,4 +1,4 @@
-## Payable Functions
+# Payable Functions
 
 Up until this point, we’ve been using tokens to represent value, but what about Ether? Let’s introduce how a smart contract can interact with Ether.
 

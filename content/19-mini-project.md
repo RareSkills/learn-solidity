@@ -1,4 +1,4 @@
-## Token Exchange mini project
+# Token Exchange mini project
 
 **This is challenging**
 

@@ -1,4 +1,4 @@
-## ERC20 Tokens
+# ERC20 Tokens
 
 We are now ready to make an ERC20 token!
 

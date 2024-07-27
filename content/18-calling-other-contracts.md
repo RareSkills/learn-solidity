@@ -1,4 +1,4 @@
-## Calling other Contracts
+# Calling other Contracts
 
 Everything we’ve been doing up to this point is calling smart contracts directly. But it’s also possible, and in fact, desirable, for smart contracts to be able to communicate with each other.
 

@@ -1,4 +1,4 @@
-## Require
+# Require
 
 There’s just one more essential Solidity key word, and then we are ready to create our own ERC20 token.
 

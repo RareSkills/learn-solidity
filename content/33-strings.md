@@ -1,4 +1,4 @@
-## Strings
+# Strings
 
 Strings are dynamically-sized UTF-8 encoded bytes is also a dynamically-sized byte array. Both of which are interchangeable by just using string() to convert strings to bytes and bytes() to convert bytes to strings respectively. This greatly helps us in doing operations on string like we can with other programming languages. However since strings are UTF-8 encoded if such character requires more than one byte then it increases the difficulty in string manipulation.
 

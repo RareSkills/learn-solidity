@@ -1,4 +1,4 @@
-## Setup your Environment
+# Setup your Environment
 
 If you have not yet set up cURL on your system you can visit the following link to do so:
 

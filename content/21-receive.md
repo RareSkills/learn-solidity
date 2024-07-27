@@ -1,4 +1,4 @@
-## Receive
+# Receive
 
 It was a bit annoying to have to abi encode a function just to send Ether. Luckily, Solidity has a nice way to handle this.
 

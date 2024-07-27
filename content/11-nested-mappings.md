@@ -1,4 +1,4 @@
-## Nested Mappings
+# Nested Mappings
 
 In most languages, a hashmap can contain another hashmap, and Solidity does this too. However, because mappings are not valid return types, you must supply all the keys the maps require.
 

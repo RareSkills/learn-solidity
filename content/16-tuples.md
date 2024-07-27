@@ -1,4 +1,4 @@
-## Tuples
+# Tuples
 
 We’re going to go off on a slight tangent here to introduce the tuple data type, because it is a prerequisite for upcoming sections.
 

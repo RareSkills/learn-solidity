@@ -1,4 +1,4 @@
-## Interfaces
+# Interfaces
 
 I’m sure you thought the way we were calling other contracts with .call and abi.encodeWithSignature was a bit clumsy.
 

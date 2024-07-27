@@ -1,4 +1,4 @@
-## Development Environment
+# Development Environment
 
 To get started, we will learn solidity as a language. We won’t begin with deploying contracts on the blockchain, that will just make things more complicated.
 

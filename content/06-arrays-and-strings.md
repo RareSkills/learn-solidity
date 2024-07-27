@@ -1,4 +1,4 @@
-## Introduction to arrays and strings
+# Introduction to arrays and strings
 
 In this section we will introduce the array data structure and the string data structure. These behave differently from the solidity datatypes we discussed earlier, so we will discuss them here.
 

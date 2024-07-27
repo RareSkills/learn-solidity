@@ -1,4 +1,4 @@
-## Constructor
+# Constructor
 
 Going back to our rolling ERC20 example, we did something a little weird, we set the banker variable directly in the contract.
 

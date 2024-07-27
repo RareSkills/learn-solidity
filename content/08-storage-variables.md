@@ -1,4 +1,4 @@
-## Storage Variables
+# Storage Variables
 
 Up until this point, all of our functions have just returned values that purely depend on the function arguments. They do not depend on anything other than the immediate input. That’s why they are called **pure** functions. They are not aware of the blockchain state or anything that has happened in the past.
 

@@ -1,4 +1,4 @@
-## Emitting Events
+# Emitting Events
 
 Technically, our “ERC20” token is not fully ERC20 compliant. It’s missing an important feature: **events**.
 

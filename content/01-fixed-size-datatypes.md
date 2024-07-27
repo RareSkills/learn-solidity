@@ -1,4 +1,4 @@
-## Fixed Size Datatypes: Solidity is a typed language.
+# Fixed Size Datatypes: Solidity is a typed language.
 
 Solidity is a typed language.
 

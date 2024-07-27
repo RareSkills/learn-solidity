@@ -1,4 +1,4 @@
-## Application Binary Interface Encoding (abi encoding)
+# Application Binary Interface Encoding (abi encoding)
 
 We’re going to have to go on what seems like another random tangent before we can introduce our next piece of information.
 

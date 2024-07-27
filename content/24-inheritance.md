@@ -1,4 +1,4 @@
-## Inheritance
+# Inheritance
 
 Implementing an ERC20 contract from scratch each time would no doubt get tiring. Solidity behaves like an object oriented language and allows for inheritance. Here is a minimal example.
 

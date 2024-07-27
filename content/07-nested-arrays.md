@@ -1,4 +1,4 @@
-## Nested Arrays
+# Nested Arrays
 
 Nested arrays are rarely used in practice, but we include them here for the sake of completeness.
 

@@ -1,4 +1,4 @@
-## Deploying an ERC721 to OpenSea
+# Deploying an ERC721 to OpenSea
 
 An ERC721 is very similar to an ERC20. It has an notion of transfering, balance, and allowance. The only difference is that each token has a unique ID, and there is only one of them.
 

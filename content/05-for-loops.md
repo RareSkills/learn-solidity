@@ -1,4 +1,4 @@
-## For Loops
+# For Loops
 
 Just like if statements, there is nothing surprising about for loops. Here is the code to add up all the numbers from 1 to 99
 

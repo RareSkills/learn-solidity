@@ -1,4 +1,4 @@
-## Unit Testing in Solidity
+# Unit Testing in Solidity
 
 It's about time you learned how to write unit tests! We've already written a tutorial on unit testing, so no need to repeat it on this page
 

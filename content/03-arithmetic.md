@@ -1,4 +1,4 @@
-## Arithmetic
+# Arithmetic
 
 Arithmetic in Solidity behaves exactly the same as in other languages, so we won’t belabor the point here.
 

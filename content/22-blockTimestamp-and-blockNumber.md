@@ -1,4 +1,4 @@
-## Block.timestamp and Block.number
+# Block.timestamp and Block.number
 
 We’ve been able to do some cool stuff up to this point, but we haven’t been able to track the passage of time.
 

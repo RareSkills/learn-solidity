@@ -1,4 +1,4 @@
-## Mappings
+# Mappings
 
 Mapping, Hashmap, associative array, maps, whatever you want to call it, Solidity has it.
 

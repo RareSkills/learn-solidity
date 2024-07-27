@@ -1,4 +1,4 @@
-## Launch and verify an NFT with Foundry
+# Launch and verify an NFT with Foundry
 
 In the video tutorial above, you put an NFT on Opensea using the Remix environment.
 

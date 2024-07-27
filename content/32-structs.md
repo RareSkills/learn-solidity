@@ -1,4 +1,4 @@
-## Structs
+# Structs
 
 Structs in Solidity behave similar to C. They group different variables within a single composite data type, which can be extremely useful in organizing data and creating more complex data structures.
 

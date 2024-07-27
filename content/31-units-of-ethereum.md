@@ -1,4 +1,4 @@
-## Units of Ethereum: wei, gwei, and ether
+# Units of Ethereum: wei, gwei, and ether
 
 The following two lines of code are equivalent
 
