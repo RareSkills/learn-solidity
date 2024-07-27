@@ -4,11 +4,11 @@ We’re going to have to go on what seems like another random tangent before we 
 
 But I want you to understand what the following things are
 
-abi.encode
+- abi.encode
 
-abi.decode
+- abi.decode
 
-abi.encodeWithSignature
+- abi.encodeWithSignature
 
 To motivate them, let’s create another smart contract, open the “debug” dropdown, and get a certain piece of information.
 
@@ -62,7 +62,7 @@ So what is happening?
 
 When you call a function in a smart contract, you aren’t actually doing a “function call” per se, you are sending data to the contract with some information about which function should be executed.
 
-Makes sense right? When you fire up your browser wallet and trade ERC20 tokens, there’s no way you can “call a function” on an ERC20 contract remotely. Function calls only happen inside the same execution context. Describing transactions as functions however, is convenient. But we need to look behind the curtain to see exactly what is happening to really understand Solidity.
+Makes sense right? When you fire up your browser wallet and trade ERC20 tokens, there’s no way you can “call a function” on an ERC20 contract remotely. Function calls only happen inside the same execution context. Describing transactions as functions, however, is convenient. But we need to look behind the curtain to see exactly what is happening to really understand Solidity.
 
 When you “call a smart contract” you are sending data to the contract with instructions for how to execute.
 
