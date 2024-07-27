@@ -52,7 +52,7 @@ contract TrackDebt {
 
 ```
 
-Note that the order matters here. In this construction, one lender can have several borrowers. If we had set borrower to be the first key, it would imply a borrower might have mutiple debtors.
+Note that the order matters here. In this construction, one lender can have several borrowers. If we had set borrower to be the first key, it would imply a borrower might have multiple debtors.
 
 The same restrictions that apply to regular mappings apply to nested mappings. You cannot iterate over the keys, declare them inside a function, or return them from a function.
 
