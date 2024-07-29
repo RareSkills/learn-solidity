@@ -1,6 +1,6 @@
 # For Loops
 
-Just like if statements, there is nothing surprising about for loops. Here is the code to add up all the numbers from 1 to 99
+Just like if statements, there is nothing surprising about `for` loops. Here is the code to add up all the numbers from 1 to 99
 
 ```solidity
 
@@ -19,7 +19,7 @@ contract ExampleContract {
 
 ```
 
-Solidity also supports the += operator if you prefer to do it that way.
+Solidity also supports the `+=` operator if you prefer to do it that way.
 
 ```solidity
 
@@ -63,7 +63,7 @@ contract ExampleContract {
 
 ```
 
-Practice Problems
+**Practice Problems**
 
 [IsPrime](https://github.com/RareSkills/Solidity-Exercises/tree/main/IsPrime)
 

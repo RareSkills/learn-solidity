@@ -84,17 +84,17 @@ function getAddressFail()
 
 An address is represented as a hex string that has 40 characters in it, and always starts with 0x. A valid hex string contains the characters [0-9] or [a-f] inclusive.
 
-**warning**: be careful when typing addresses manually. Solidity will covert 0x1 into an address with the value 0x0000000000000000000000000000000000000001. If you have an address with less than 40 hex characters, it will pad it with leading zeros.
+**Warning**: be careful when typing addresses manually. Solidity will covert 0x1 into an address with the value 0x0000000000000000000000000000000000000001. If you have an address with less than 40 hex characters, it will pad it with leading zeros.
 
 If you create an address with more than 40 characters, it won’t compile.
 
-Note that the 40 characters does not include the leading 0x.
+Note that the 40 characters do not include the leading 0x.
 
 **uint256**
 
-Let’s revisit **uint256. W**hat exactly does that mean?
+Let’s revisit **uint256**. What exactly does that mean?
 
-The *u*means unsigned. It cannot represent negative numbers. The 256 means it can store numbers up to **256** bits large, or 2^256-1.
+The *u* means unsigned. It cannot represent negative numbers. The 256 means it can store numbers up to **256** bits large, or 2^256-1.
 
 Let’s plug that into python to see how big that number is.
 

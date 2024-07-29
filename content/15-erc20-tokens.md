@@ -2,7 +2,7 @@
 
 We are now ready to make an ERC20 token!
 
-ERC20 tokens typically have a **name** and a **symbol**. For example, ApeCoin has the name “ApeCoin” but the symbol “APE.” The name of the token generally doesn’t change, so we’ll set it in the constructor and not provide any functions to change it later. We’ll make these variables public so that anyone can check the name and symbol of the contract.
+ERC20 tokens typically have a **name** and a **symbol**. For example, ApeCoin has the name "ApeCoin" but the symbol "APE." The name of the token generally doesn’t change, so we’ll set it in the constructor and not provide any functions to change it later. We’ll make these variables public so that anyone can check the name and symbol of the contract.
 
 ```solidity
 
@@ -34,7 +34,7 @@ contract ERC20 {
 }
 ```
 
-We say “balanceOf” because that is part of the ERC20 [specification](https://eips.ethereum.org/EIPS/eip-20). ERC20 as a specification means that people can call the function “balanceOf” on your contract, supply an address, and get how many tokens that address owns.
+We say "balanceOf" because that is part of the ERC20 [specification](https://eips.ethereum.org/EIPS/eip-20). ERC20 as a specification means that people can call the function "balanceOf" on your contract, supply an address, and get how many tokens that address owns.
 
 Everyone’s balance is zero right now, so we need a way to bring tokens into existence. We’ll allow a special address, the person who deployed the contract, to create tokens at will.
 
@@ -109,7 +109,7 @@ Let’s reduce the number a bit to make it more clear
 
 10000000000000000000000000000000000000000000000000000000000000000000000000000
 
-To be able to describe “decimals”, we say the 18 zeros to the right are the fractional part of the coin.
+To be able to describe "decimals", we say the 18 zeros to the right are the fractional part of the coin.
 
 10000000000000000000000000000000000000000000000000000000000.000000000000000000
 
@@ -121,7 +121,7 @@ full coins, with the zeros to the right being decimals. That’s 10 octodecillio
 
 10 octodecillion should be enough for most applications, even countries that go into hyperinflation.
 
-The “units” of the currency are still integers, but the units are now very small values.
+The "units" of the currency are still integers, but the units are now very small values.
 
 18 decimal places is pretty standard, but some coins use 6 decimal places.
 
@@ -196,9 +196,9 @@ contract ERC20 {
 }
 ```
 
-Aha, we snuck in an extra line of code there: **require(to != address(0), “cannot send to address(0))**
+Aha, we snuck in an extra line of code there: **require(to != address(0), "cannot send to address(0))**
 
-Why is this? Well, nobody “owns” the zero address, so tokens sent there are un-spendable. By convention, sending a token to the zero address should reduce the **totalSupply** so we want to have a separate function for that.
+Why is this? Well, nobody "owns" the zero address, so tokens sent there are un-spendable. By convention, sending a token to the zero address should reduce the **totalSupply** so we want to have a separate function for that.
 
 Now we introduce a concept of **allowance**.
 
@@ -206,7 +206,7 @@ Now we introduce a concept of **allowance**.
 
 Allowance enables an address to spend someone else’s tokens, up to a limit that they specify.
 
-Why would you allow someone to spend tokens for you? This is a very long story, but to summarize, think about how you would “know” someone transferred you ERC20 tokens. All that happens is a function gets executed and a mapping changed values. You didn’t “receive” the tokens, they just became associated with your address.
+Why would you allow someone to spend tokens for you? This is a very long story, but to summarize, think about how you would "know" someone transferred you ERC20 tokens. All that happens is a function gets executed and a mapping changed values. You didn’t "receive" the tokens, they just became associated with your address.
 
 Now, as an entity outside the blockchain, you can inspect it for events that make you richer.
 

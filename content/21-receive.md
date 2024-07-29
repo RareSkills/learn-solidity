@@ -14,7 +14,7 @@ contract TakeMoney {
 
 Note a couple new things:
 
-- receive is a function, but it doesn’t have the function keyword. This is because it is a “special” function like the constructor, so to emphasize that, the “function” keyword is not included.
+- receive is a function, but it doesn’t have the function keyword. This is because it is a "special" function like the constructor, so to emphasize that, the "function" keyword is not included.
 - We used a modifier **external** rather than **public**
 
 Up until now, we’ve been using the modifier public whenever we wanted the function to be callable outside the contract. External means it can **only** be called outside the contract. For simplicity, we’ll be using **public** but we’ll get into the distinction between external and public more later. Solidity however, only allows the **receive** function to be external.
@@ -99,7 +99,7 @@ contract SaveMoney {
 
 ```
 
-It might seem strange that we are doing a “function call” to a wallet, which has no functions.
+It might seem strange that we are doing a "function call" to a wallet, which has no functions.
 
 The convention is a bit confusing. Just remember this.
 

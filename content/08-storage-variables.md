@@ -6,7 +6,7 @@ This would be quite problematic if we were keeping track of something, like how 
 
 Now we introduce the **storage variable.**
 
-These look like “class variables” in other languages, but don’t really behave like them. You can think of them as **variables that behave like a miniature database.**
+These look like "class variables" in other languages, but don’t really behave like them. You can think of them as **variables that behave like a miniature database.**
 
 Let’s look at an example
 
@@ -37,9 +37,9 @@ We have a lot to unpack here!
 
 **Variables declared outside of functions are storage variables. They keep their value after the transaction ends.**
 
-Note that **getX()** has the modifier **view** instead of **pure**. That’s because it views the blockchain state, I.e. what is stored in the variable x. If you change view to pure in this example, the code will not compile. You can also think of **view** as **read-only**. Also note that the return value of getX has the same type as x, both are uint256.
+Note that **`getX()`** has the modifier **`view`** instead of **`pure`**. That’s because it views the blockchain state, I.e. what is stored in the variable `x`. If you change view to pure in this example, the code will not compile. You can also think of **view** as **read-only**. Also note that the return value of getX has the same type as x, both are uint256.
 
-Second, note that **setX** does not have a view or a pure modifier. That’s because it is a **state changing function**. Functions that change storage variables, or make some other lasting change to the blockchain cannot have the view or pure modifier, this is because they are not **read only** and thus cannot be labelled as view, and certainly not **pure**.
+Second, note that **`setX`** does not have a view or a pure modifier. That’s because it is a **state changing function**. Functions that change storage variables, or make some other lasting change to the blockchain cannot have the view or pure modifier, this is because they are not **read only** and thus cannot be labelled as `view`, and certainly not **`pure`**.
 
 To enforce the point, note that the following code is invalid
 
@@ -67,7 +67,7 @@ contract ExampleContract {
 
 ```
 
-Note that the variable x itself has the modifier **internal**. This means other smart contracts cannot see the value.
+Note that the variable x itself has the modifier **`internal`**. This means other smart contracts cannot see the value.
 
 **Just because a variable is internal does not mean it is hidden. It’s still stored on the blockchain and anyone can parse the blockchain to get the value!**
 
@@ -131,7 +131,7 @@ This is confusing because public functions can modify variables, but public vari
 
 **Summary**
 
-- Storage variable are declared outside of functions
+- Storage variables are declared outside of functions
 - Public functions that do not have a view or pure modifier can change storage variables
 - Pure functions cannot access storage variables
 

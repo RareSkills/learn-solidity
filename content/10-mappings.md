@@ -2,7 +2,7 @@
 
 Mapping, Hashmap, associative array, maps, whatever you want to call it, Solidity has it.
 
-We’ll call it “mapping” because that’s the keyword Solidity uses. Let’s see an example.
+We’ll call it "mapping" because that’s the keyword Solidity uses. Let’s see an example.
 
 ```solidity
 
@@ -29,7 +29,7 @@ This does what you think it does. Because myMapping is public, Solidity wraps it
 
 Here is the first surprising thing:
 
-**If you access a mapping with a key that has not been set, you will NOT get a revert. The mapping will just return the “zero value” of the datatype for the value**
+**If you access a mapping with a key that has not been set, you will NOT get a revert. The mapping will just return the "zero value" of the datatype for the value**
 
 In the following example, the mapping will return *false* if you supply a number that hasn’t been set.
 
@@ -79,7 +79,7 @@ contract ERC20Token {
 
 This implementation has a flaw that anyone can invoke the public functions and send tokens between addresses willy-nilly, but we’ll fix that later.
 
-Counterintuitively, **ERC20 tokens are not stored in cryptocurrency wallets, they are simply a [uint256](https://www.rareskills.io/post/uint-max-value-solidity) associated with your address in a smart contract**. “ERC20 tokens” are simply a smart contract.
+Counterintuitively, **ERC20 tokens are not stored in cryptocurrency wallets, they are simply a [uint256](https://www.rareskills.io/post/uint-max-value-solidity) associated with your address in a smart contract**. "ERC20 tokens" are simply a smart contract.
 
 Here is the smart contract for USDC, an ERC20 token: [https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48](https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48)
 
@@ -146,6 +146,6 @@ contract BrokenContract {
 
 ```
 
-**Problems**
+**Practice Problems**
 
 [SpecialNumbers](https://github.com/RareSkills/Solidity-Exercises/tree/main/SpecialNumbers)

@@ -59,9 +59,9 @@ modifier onlyOwner() {
 }
 ```
 
-It simply means “execute the code before the underscore, then execute the function.”
+It simply means "execute the code before the underscore, then execute the function."
 
-This is a handy way to “modify” the function behavior, hence the name “modifiers.”
+This is a handy way to "modify" the function behavior, hence the name "modifiers."
 
 Note that even though HoldFunds inherited from Ownable, it didn’t override any functions. Inheritance in Solidity is more often a mechanism for including behavior than for defining some kind of polymorphism (don’t worry if you don’t know what that is).
 

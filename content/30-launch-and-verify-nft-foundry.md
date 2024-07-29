@@ -11,11 +11,11 @@ In this chapter, we will show you how to
 
 If you’ve been doing the exercises, you should already have foundry installed, so let’s set it up.
 
-Create a new folder; call it foundry-nft, cd to it, and run “forge init” in the empty folder.
+Create a new folder; call it foundry-nft, cd to it, and run "forge init" in the empty folder.
 
 **Copy and Paste the code**
 
-Here’s the code for creating the NFT. Rename the Counter.sol file in the “src” directory to FoundryNFT.sol and paste this code.
+Here’s the code for creating the NFT. Rename the Counter.sol file in the "src" directory to FoundryNFT.sol and paste this code.
 
 ```solidity
 
@@ -63,7 +63,7 @@ forge-std/=lib/forge-std/src/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
 ```
 
-We can see the OpenZepplin remapping, so we don’t need to specify the full path to the OpenZeppelin contracts. We can use **openzeppelin-contracts/contracts/token/ERC721/ERC721.sol** instead of specifying the “lib/” directory first.
+We can see the OpenZepplin remapping, so we don’t need to specify the full path to the OpenZeppelin contracts. We can use **openzeppelin-contracts/contracts/token/ERC721/ERC721.sol** instead of specifying the "lib/" directory first.
 
 **Not using remappings**
 

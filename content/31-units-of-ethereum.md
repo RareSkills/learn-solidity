@@ -8,7 +8,7 @@ The following two lines of code are equivalent
 (bool ok, ) = recipient.call{value: 1_000_000_000_000_000_000}("");
 ```
 
-If you feel like counting, that’s 10^18. Remember, there aren’t floats in Solidity, so “1 Ethereum” is actually 10^18 units of its smallest unit.
+If you feel like counting, that’s 10^18. Remember, there aren’t floats in Solidity, so "1 Ethereum" is actually 10^18 units of its smallest unit.
 
 The smallest unit of Ether is 1 wei. 10^18 wei is 1 Ether.
 

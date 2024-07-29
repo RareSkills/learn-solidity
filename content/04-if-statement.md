@@ -1,4 +1,4 @@
-# If Statements
+# If Statements
 
 If statements behave exactly the same as other languages
 
@@ -56,7 +56,7 @@ function isNotZero(uint256 x)
 
 ```
 
-Solidity also supports the “else if” construction, but we will assume you are already familiar with what that looks like.
+Solidity also supports the "else if" construction, but we will assume you are already familiar with what that looks like.
 
 Solidity does not have a **switch** statement like Java and C do.
 

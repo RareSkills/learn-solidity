@@ -31,13 +31,13 @@ One Wei is 1/10^18 Ether, One gwei is one billionth of an Ether, and one Finney 
 
 Let’s make this simple and just send one Ether.
 
-When we click “howMuchEtherIHave” we actually get back
+When we click "howMuchEtherIHave" we actually get back
 
 1000000000000000000
 
 This doesn’t mean we created a ton of Ether out of thin air. Remember floats are not a thing on the blockchain, so Ether uses the same strategy for decimals that ERC20 tokens do. A unit of Ether is actually one Wei, and what we traditionally think of as one Ether is 10^18 Wei.
 
-By the way, the .balance construction works on arbitrary addresses. A smart contract can determine how rich (or poor) you are with the following function
+By the way, the `.balance` construction works on arbitrary addresses. A smart contract can determine how rich (or poor) you are with the following function
 
 ```solidity
 
@@ -109,7 +109,7 @@ contract ExampleContract {
 
 It’s clear how to send Ether if you initiate the transaction from Remix, but what if another smart contract wants to send Ether?
 
-You will use the **call function we described earlier, but with an extra “meta argument.” It may look strange at first, but you’ll get used to it.
+You will use the **call function we described earlier, but with an extra "meta argument". It may look strange at first, but you’ll get used to it.
 
 ```solidity
 
@@ -156,19 +156,19 @@ contract SendMoney {
 
 Let’s break down what we are looking at here.
 
-- call has a funny looking json-like object between call and the arguments. This is how ether is sent with a call. The “value” key determines the amount sent. This is zero by default
+- call has a funny looking json-like object between call and the arguments. This is how ether is sent with a call. The "value" key determines the amount sent. This is zero by default
 - We have a tuple with an empty second argument; (bool ok,). This means we are ignoring the return value of takeMoney(). If we don’t care about the return value, we use this construction.
 - We still care if the transfer fails. So we have the require(ok) construction in place.
 
 Some experiments
 
 - Deploy both contracts, but supply Ether to SendMoney at construction time. View myBalance on both contracts before and after calling sendMoney
-- Remove the “payable” modifier on takeMoney and see what happens (it should revert)
+- Remove the "payable" modifier on takeMoney and see what happens (it should revert)
 - Use ether when calling sendMoney and note how the balance receiveEther gets increased
 
 **Payable functions cannot be view or pure**
 
-Changing the Ether balance of a smart contract is a “state change” on the blockchain. It’s a permanent alteration that endures even after the transaction is finished, similar to updating a storage variable. Therefore, payable functions cannot be view or pure. The compiler won’t accept that.
+Changing the Ether balance of a smart contract is a "state change" on the blockchain. It’s a permanent alteration that endures even after the transaction is finished, similar to updating a storage variable. Therefore, payable functions cannot be view or pure. The compiler won’t accept that.
 
 **Practice Problems**
 

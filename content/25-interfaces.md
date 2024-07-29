@@ -75,13 +75,13 @@ The important fact here is that V2 is much cleaner than V1!
 
 The interface nicely wraps up the abi encoding and decoding for us so that we don’t have to think about it. The interface defines the return type, which defines how the abi decoding will work, and the function signature and arguments define the abi encoding.
 
-Now we can abstract that all away and call another contracts function as if it was just another function call.
+Now we can abstract that all away and call another contract function as if it was just another function call.
 
 Pretty cool right?
 
 Note that the modifier for the interface function is **external** not public. You cannot declare interfaces to be public, only external. You don’t declare the internal functions because outside contracts won’t know anything about it.
 
-I’ve been simplifying things by making everything public up to this point, except where absolutely necessary. But you’ve grown as a Solidity dev since the twenty+ chapters we’ve been though. Therefore, I will now introduce a best practice you should adhere to.
+I’ve been simplifying things by making everything public up to this point, except where absolutely necessary. But you’ve grown as a Solidity dev since the twenty+ chapters we’ve been through. Therefore, I will now introduce a best practice you should adhere to.
 
 **Unless a function needs to be called from inside a smart contract, it should be external, not public.**
 
@@ -147,4 +147,4 @@ I know you are dreading the ABI encoding stuff, but I want to show you what happ
 
 The reader is encouraged to do state changing things inside of add to see the transaction revert.
 
-If you have a Java background, this whole bit with interfaces is probably a rather obvious. But it’s important to remember that, behind the scenes, a cross-contract call, with abi encoding, is happening. You aren’t “compiling” another smart contract into your own, like how Java objects would be combined together.
+If you have a Java background, this whole bit with interfaces is probably a rather obvious. But it’s important to remember that, behind the scenes, a cross-contract call, with abi encoding, is happening. You aren’t "compiling" another smart contract into your own, like how Java objects would be combined together.

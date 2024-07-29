@@ -1,4 +1,4 @@
-# Immutable variables
+# Immutable variables
 
 If you aren’t ever going to change a variable, it’s best to explicit about your intentions. Solidity has a keyword for this.
 

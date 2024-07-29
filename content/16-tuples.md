@@ -23,9 +23,9 @@ contract ExampleContract {
 
 ```
 
-Note that tuples are implied. The keyword “tuple” never appears in Solidity.
+Note that tuples are implied. The keyword "tuple" never appears in Solidity.
 
-Tuples can also be “unpacked” to get the variables inside, like in the following example.
+Tuples can also be "unpacked" to get the variables inside, like in the following example.
 
 ```solidity
 

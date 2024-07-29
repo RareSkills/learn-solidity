@@ -6,7 +6,7 @@ Syntax for declaring arrays
 
 Let’s look at a function that takes an array and returns an array. There is quite a bit to unpack here!
 
-First, it should be clear that the syntax for declaring an array of numbers is uint256[]. We’ll get to “calldata” and “memory” in a moment.
+First, it should be clear that the syntax for declaring an array of numbers is uint256[]. We’ll get to `calldata` and `memory` in a moment.
 
 ```solidity
 
@@ -43,7 +43,7 @@ contract ExampleContract {
 
 ```
 
-So what is this “calldata” and “memory” **bit? First off, if you don’t include them, the code won’t compile. Here are two examples of code that doesn’t compile.
+So what is this `calldata` and `memory` bit? First off, if you don’t include them, the code won’t compile. Here are two examples of code that doesn’t compile.
 
 ```solidity
 
@@ -75,23 +75,23 @@ contract BadContract2 {
 
 ```
 
-So what is calldata and memory?
+So what are `calldata` and `memory`?
 
 If you are familiar with C or C++, this concept will be intuitive. Memory in Solidity is like the heap in C, C++, or Rust. Arrays can have unlimited size, so storing them on the execution stack (don’t worry if you don’t know what that is), could lead to a *stackoverflow* error (not to be confused with the famous forum!).
 
-Calldata is something unique to Solidity. It is the actual “transaction data” that is sent when someone transmits a transaction to the blockchain.
+Calldata is something unique to Solidity. It is the actual "transaction data" that is sent when someone transmits a transaction to the blockchain.
 
-Calldata means “refer to the data in the Ethereum transaction itself.” This is a fairly advanced concept, so don’t worry if you don’t fully understand it for now.
+Calldata means "refer to the data in the Ethereum transaction itself." This is a fairly advanced concept, so don’t worry if you don’t fully understand it for now.
 
 When in doubt: the function arguments for arrays and strings should be calldata and the function arguments for the return type should be memory.
 
-There are some exceptions to using “calldata” in a function argument, but the return type for an array should always be memory, never calldata, or the code won’t compile. To avoid bombarding you with information, we will talk about the exceptions to calldata later.
+There are some exceptions to using `calldata` in a function argument, but the return type for an array should always be memory, never calldata, or the code won’t compile. To avoid bombarding you with information, we will talk about the exceptions to calldata later.
 
 Here is how to use arrays of numbers with Remix.
 
 ![Untitled 1](https://github.com/user-attachments/assets/a399da3e-cf19-494e-ad4e-6d5dc568722b)
 
-**Arrays are zero indexed like every other language**
+**Arrays are zero-indexed like every other language**
 
 No surprises here.
 
@@ -111,9 +111,9 @@ contract ExampleContract {
 
 Note that the return type is uint256, because we are returning a number, not an array.
 
-Note that if the array was empty, the transaction will revert.
+Note that if the array is empty, the transaction will revert.
 
-**To get the length of an array, use .length**
+**To get the length of an array, use `.length`**
 
 This is the same as JavaScript.
 

@@ -27,7 +27,7 @@ Even though Child is empty, we see the function in the Child
 
 ![https://static.wixstatic.com/media/61a666_fb428cb0a1aa4236950028fcf7a1db70~mv2.png/v1/fill/w_939,h_595,al_c,q_95,enc_auto/Inheritance2.png](https://static.wixstatic.com/media/61a666_fb428cb0a1aa4236950028fcf7a1db70~mv2.png/v1/fill/w_939,h_595,al_c,q_95,enc_auto/Inheritance2.png)
 
-When a “contract” **is** “another contract”, it inherits all it’s functionality.
+When a "contract" **is** "another contract", it inherits all it’s functionality.
 
 Like other object oriented programming languages, functions can be overridden. Here is the construction for changing the value.
 
@@ -141,7 +141,7 @@ In case you are wondering, if the two parents had a function with the same name,
 
 There are two ways to make a function not accessible from the outside world: giving them a private or internal modifier. The distinction is simple.
 
-Private functions (and variables) cannot be “seen” by the child contracts.
+Private functions (and variables) cannot be "seen" by the child contracts.
 
 Internal functions and variables can.
 
@@ -171,7 +171,7 @@ contract Parent {
 
 **The super keyword**
 
-The super keyword means “call the parent’s function.” Here’s how it can be useful
+The super keyword means "call the parent’s function." Here’s how it can be useful
 
 ```solidity
 
@@ -201,7 +201,7 @@ contract Child is Parent {
 
 If we didn’t include the super keyword here, foo() would call itself and go into infinite recursion. Try removing super and running the code in Remix. The transaction will revert because of the infinite recursion (Ethereum doesn’t let code run forever, it forcibly terminates them. The exact mechanism is an intermediate topic for later discussion).
 
-Super means “call the parent’s foo, not mine.” This let’s us get all the functionality of foo without having to copy and paste the code.
+Super means "call the parent’s foo, not mine." This let’s us get all the functionality of foo without having to copy and paste the code.
 
 **Calling the parent’s constructor**
 
@@ -295,7 +295,7 @@ There is a world of difference between a smart contract as a solidity object and
 
 **You cannot inherit contract deployed on the blockchain.**
 
-They are binary blobs living outside of you. Because of the ambiguous terminology, some solidity developers have worried that functions and variables can be inherited and overridden by a malicious contract. **This cannot occur**. Even though we refer to deployed code as a “contract” and solidity code as a “contract” they are not the same thing.
+They are binary blobs living outside of you. Because of the ambiguous terminology, some solidity developers have worried that functions and variables can be inherited and overridden by a malicious contract. **This cannot occur**. Even though we refer to deployed code as a "contract" and solidity code as a "contract" they are not the same thing.
 
 **Practice Problems**
 

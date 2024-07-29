@@ -40,7 +40,7 @@ function characterOfString(
 
 ```
 
-Keep in mind this will only work if the entire string is ascii. If we pass in unicode characters that take up more than one byte, for example “你好” the code will crash.
+Keep in mind this will only work if the entire string is ascii. If we pass in unicode characters that take up more than one byte, for example "你好" the code will crash.
 
 Getting a character from a string is a bit harder than just indexing it like javascript or python because we have to initialise a string array of length 1 and then insert the character we want to get to the new string array. This is what the code above is doing.
 
@@ -55,7 +55,7 @@ contract Message {
 }
 ```
 
-Something slightly misleading is solidity is that we use “strings” to represent hex data if the hex modifier is used. The following shoes casting the hexadecimal encoding of “helloworld” to helloworld.
+Something slightly misleading is solidity is that we use "strings" to represent hex data if the hex modifier is used. The following shoes casting the hexadecimal encoding of "helloworld" to helloworld.
 
 ```solidity
 

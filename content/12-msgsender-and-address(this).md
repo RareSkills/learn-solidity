@@ -25,7 +25,7 @@ contract ERC20Token {
     ) 
         public {
             balances[sender] -= amount;   // deduct/debit the sender's balance
-            balances[receiver] += amount; // credit the reciever's balance
+            balances[receiver] += amount; // credit the receiver's balance
     }
 }
 
@@ -33,7 +33,7 @@ contract ERC20Token {
 
 The issue is that we have no idea who is calling the function.
 
-Luckily, Solidity has a mechanism to identify who is calling the smart contract: **msg.sender**. Msg.sender returns the address of who is invoking the smart contract function.
+Luckily, Solidity has a mechanism to identify who is calling the smart contract: **msg.sender**. msg.sender returns the address of who is invoking the smart contract function.
 
 Try out the following code in remix:
 
@@ -52,7 +52,7 @@ contract ExampleContract {
 
 It will return the test address you are using in remix.
 
-Now change the test address by hitting the “ACCOUNT” dropdown. Then try the function again. The address returned will be different.
+Now change the test address by hitting the "ACCOUNT" dropdown. Then try the function again. The address returned will be different.
 
 ![https://static.wixstatic.com/media/61a666_6911916215e746e4be2a25bdbcf2e9ac~mv2.png/v1/fill/w_939,h_610,al_c,q_95,enc_auto/msgsender.png](https://static.wixstatic.com/media/61a666_6911916215e746e4be2a25bdbcf2e9ac~mv2.png/v1/fill/w_939,h_610,al_c,q_95,enc_auto/msgsender.png)
 
@@ -157,6 +157,6 @@ Try it out in Remix and see the address matches
 
 ![https://static.wixstatic.com/media/61a666_055fd70f34e24119a3e16f51820845f3~mv2.png/v1/fill/w_939,h_275,al_c,q_95,enc_auto/addressmsg.png](https://static.wixstatic.com/media/61a666_055fd70f34e24119a3e16f51820845f3~mv2.png/v1/fill/w_939,h_275,al_c,q_95,enc_auto/addressmsg.png)
 
-**Problems**
+**Practice Problems**
 
 [WhoCalledMe](https://github.com/RareSkills/Solidity-Exercises/tree/main/WhoCalledMe)

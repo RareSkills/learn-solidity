@@ -32,7 +32,7 @@ Subtracting, multiplying, and dividing are obvious, so I won’t insult your int
 
 **Solidity does not have floats**
 
-If you try to divide 5 by 2, you won’t get 2.5. You’ll get 2. Remember, unit256 is an unsigned Integer. So any division you do is integer division.
+If you try to divide 5 by 2, you won’t get 2.5. You’ll get 2. Remember, uint256 is an unsigned Integer. So any division you do is integer division.
 
 But what if you really want to know what 10% of 200 is? That seems very reasonable for, say, calculating interest.
 
@@ -89,7 +89,7 @@ What happens if x is 2 and y is 5? You won’t get negative 3. Actually, what ha
 
 Solidity doesn’t throw exceptions, but you can think of a **revert** as the equivalent of an uncaught exception or a panic in other languages.
 
-It used to be the case Solidity would allow overflows and underflows, but this lead to enough smart contracts breaking or getting hacked that the language built overflow and underflow protection into the language. This feature was added after Solidity version 0.8.0.
+It used to be the case Solidity would allow overflows and underflows, but this led to enough smart contracts breaking or getting hacked that the language built overflow and underflow protection into the language. This feature was added after Solidity version 0.8.0.
 
 You’ve probably noticed by now a lot of solidity files have a line
 
@@ -115,7 +115,7 @@ unchecked {
 
 Note that anything inside the unchecked block will not revert even if it overflows or underflows. This is a very advanced feature that you should not use unless you know what you are doing.
 
-Practice Problems
+**Practice Problems**
 
 [Add](https://github.com/RareSkills/Solidity-Exercises/tree/main/Add)
 
