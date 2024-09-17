@@ -29,36 +29,36 @@ contract ExampleContract {
     
 After you go to remix.ethereum.org, right click contracts and left click "New File"
 
-![https://static.wixstatic.com/media/c0c19a_489ef2f484f548cf888c995d79cd54ac~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/new%20file.png](https://static.wixstatic.com/media/c0c19a_489ef2f484f548cf888c995d79cd54ac~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/new%20file.png)
+![Click "new file" in Remix](https://static.wixstatic.com/media/c0c19a_489ef2f484f548cf888c995d79cd54ac~mv2.png)
 
 This is a solidity file, so give the file a .sol extension. The name is not important
 
-![https://static.wixstatic.com/media/c0c19a_3f7aed5e540941efbf85e0c8983090f1~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/save%20file.png](https://static.wixstatic.com/media/c0c19a_3f7aed5e540941efbf85e0c8983090f1~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/save%20file.png)
+![https://static.wixstatic.com/media/c0c19a_3f7aed5e540941efbf85e0c8983090f1~mv2.png](https://static.wixstatic.com/media/c0c19a_3f7aed5e540941efbf85e0c8983090f1~mv2.png)
 
 Copy the code from above, or better yet, type it out yourself.
 
-![https://static.wixstatic.com/media/c0c19a_ec23c5ddf49743b69cb70f0310903faf~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/add%20code.png](https://static.wixstatic.com/media/c0c19a_ec23c5ddf49743b69cb70f0310903faf~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/add%20code.png)
+![Solidity code in the Remix editor](https://static.wixstatic.com/media/c0c19a_ec23c5ddf49743b69cb70f0310903faf~mv2.png)
 
 To compile the code, hit *Command S* on mac (*CTRL S* on Windows). If you see a red bubble above the solidity symbol, you have a syntax error. if you see orange, you only have warnings which you can ignore for now.
 
 Now deploy the functions. Click the Ethereum symbol on the left, then click deploy.
 
-![https://static.wixstatic.com/media/c0c19a_7cb41170d78c4a34bef83c67ddc3be36~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/deploy.png](https://static.wixstatic.com/media/c0c19a_7cb41170d78c4a34bef83c67ddc3be36~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/deploy.png)
+![Click the Ethereum Symbol](https://static.wixstatic.com/media/c0c19a_7cb41170d78c4a34bef83c67ddc3be36~mv2.png)
 
 To test the functions, scroll down on the left menu, then click on them. They will return the values you expect them to.
 
-![https://static.wixstatic.com/media/c0c19a_cfb667754c4a4398bbdf27c7c4914a76~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/test.png](https://static.wixstatic.com/media/c0c19a_cfb667754c4a4398bbdf27c7c4914a76~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/test.png)
+![https://static.wixstatic.com/media/c0c19a_cfb667754c4a4398bbdf27c7c4914a76~mv2.png](https://static.wixstatic.com/media/c0c19a_cfb667754c4a4398bbdf27c7c4914a76~mv2.png)
 
 What if we want to make changes? Delete the contract with by clicking the trash icon.
 
-![https://static.wixstatic.com/media/c0c19a_0767e7d240244ca2b4e14a9ea8c0b669~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/trash.png](https://static.wixstatic.com/media/c0c19a_0767e7d240244ca2b4e14a9ea8c0b669~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/trash.png)
+![Deleting a smart contract from Remix](https://static.wixstatic.com/media/c0c19a_0767e7d240244ca2b4e14a9ea8c0b669~mv2.png)
 
 Now change the code, recompile with *command S*, then click deploy. Test the functions again.
 
-![https://static.wixstatic.com/media/c0c19a_074c5f0e3de540a09e1d2d32e9672f03~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/recompile.png](https://static.wixstatic.com/media/c0c19a_074c5f0e3de540a09e1d2d32e9672f03~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/recompile.png)
+![https://static.wixstatic.com/media/c0c19a_074c5f0e3de540a09e1d2d32e9672f03~mv2.png](https://static.wixstatic.com/media/c0c19a_074c5f0e3de540a09e1d2d32e9672f03~mv2.png)
 
 If a function requires an argument, it will be supplied next to the button.
 
-![https://static.wixstatic.com/media/c0c19a_4776ae8f1f634e8ebb309e62ef0d8ebb~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/argument.png](https://static.wixstatic.com/media/c0c19a_4776ae8f1f634e8ebb309e62ef0d8ebb~mv2.png/v1/fill/w_939,h_496,al_c,q_95,enc_auto/argument.png)
+![View function returning  avalue](https://static.wixstatic.com/media/c0c19a_4776ae8f1f634e8ebb309e62ef0d8ebb~mv2.png)
 
 You are now ready to experiment with Solidity smart contracts!
