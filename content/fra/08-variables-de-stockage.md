@@ -41,7 +41,7 @@ Noter que **`getX()`** a le modifier (modificateur) **`view`** au lieu de *
 
 Deuxièmement, notez que **`setX`** n'a pas de modifier view ou pure. Ceci est dû au fait qu'il s'agit d'une **state changing function**(fonction qui modifie l'état de la blockchain). Les fonctions qui modifient des variables de stockage, ou qui font d'autres changements permanents sur la blockchain ne peuvent avoir le modifier view ou pure, ceci parce qu'elles ne sont pas **read only** et ne peuvent donc être `view`, et encore moins **`pure`**.
 
-Pour appuyer ce fait, retenez que le code suivant est invalide:
+Pour faire respecter ce point, notez que le code suivant n'est pas valide:
 
 ```solidity
 
