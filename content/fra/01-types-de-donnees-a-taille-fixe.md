@@ -1,6 +1,4 @@
-# Types de données à taille fixe
-
-Solidity est un langage typé
+# Types de données de taille fixe : Solidity est un langage typé.
 
 Contrairement à JavaScript ou Python où vous pouvez affecter un booléen, une chaine de caractères, ou un nombre, à une variable, chaque variable ne peut avoir qu'un seul type, et elle doit être explicitement déclarée en tant que tel.
 
