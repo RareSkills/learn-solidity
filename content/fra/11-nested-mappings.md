@@ -56,7 +56,7 @@ Notez que l'ordre est important ici. Avec cette approche, un prêteur peut avoir
 
 Les mêmes restrictions qui s'appliquent aux simples mappings s'appliquent également aux mappings imbriqués. Vous ne pouvez itérer entre les clés, les déclarer dans une fonction ou les retourner comme résultat d'une fonction.
 
-**Définir un mapping imbriqué `public` ne fonctionne pas**
+**Les mappages publics imbriqués ne fonctionnent pas**
 
 Ceci est une autre particularité étrange de solidity. Solidity crée automatiquement des getters pour les variables lorsque vous les déclarez "public". Cependant, les fonctions getter publiques vous permettent de fournir les arguments nécessaires.
 
