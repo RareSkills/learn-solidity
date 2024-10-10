@@ -4,7 +4,7 @@ Jusqu'ici, toutes nos fonctions ont retourné des valeurs qui dépendaient uniqu
 
 Ceci devient problématique si on veut faire un suivi de quelque chose, comme le montant dû à quelqu'un par exemple, ou combien de points on a dans un jeu.
 
-Découvrons les **storage variable**
+Nous introduisons maintenant la **storage variable**
 
 Elles ressemblent aux "variables de classe" dans d'autres langages, mais se comportent différemmment. Vous pouvez les considérer comme **des variables qui se comportent comme une base de données miniature**.
 
