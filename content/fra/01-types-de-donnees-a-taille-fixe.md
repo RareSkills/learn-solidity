@@ -94,7 +94,7 @@ Revenons sur **uint256**. Qu'est-ce que ça veut dire exactement?
 
 Le *u* signifie "unsigned" (non signé). Il ne peut donc contenir des nombres négatifs. Le 256 indque qu'il peut stocker des nombres d'une largeur maximale de **256** bits, ou 2^256-1.
 
-Déterminons avec Python, le plus grand nombre stockable dans un uint256.
+Branchons cela sur Python pour voir quelle est la taille de ce nombre.
 
 ```solidity
 
