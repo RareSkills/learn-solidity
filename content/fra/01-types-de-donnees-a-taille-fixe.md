@@ -90,7 +90,7 @@ Notez bien que 0x n'est pas inclu dans les 40 caractères.
 
 **uint256**
 
-Penchons-nous sur le cas de **uint256**. Que celà représente-t-il exactement?
+Revenons sur **uint256**. Qu'est-ce que ça veut dire exactement?
 
 Le *u* signifie "unsigned" (non signé). Il ne peut donc contenir des nombres négatifs. Le 256 indque qu'il peut stocker des nombres d'une largeur maximale de **256** bits, ou 2^256-1.
 
