@@ -64,8 +64,6 @@ Now call **addToArray** with argument 10. Call **getLength()** again. Now it
 
 Call **removeFromArray()** followed by **getLength()**. It now returns 6 as you expect.
 
-Because myArray is public, Remix shows it as visible as a function. But it will not return the entire array. It will ask for an index and return the value at that index. The myArray function behaves like this
-
 It is worth noting that because myArray is public, Remix shows it as visible as a function. This means that the compiler will automatically generate a function called myArray() that can be called to read the values stored in myArray.
 
 ![https://static.wixstatic.com/media/61a666_7e7dc8b8051d40f0b27eef324637a121~mv2.png/v1/fill/w_620,h_749,al_c,q_95,enc_auto/https___s3-us-west-2_amazonaws_com_secure_notion-static_com_d1f0cfa4-c946-44de-b3a9-a67fe0.png](https://static.wixstatic.com/media/61a666_7e7dc8b8051d40f0b27eef324637a121~mv2.png/v1/fill/w_620,h_749,al_c,q_95,enc_auto/https___s3-us-west-2_amazonaws_com_secure_notion-static_com_d1f0cfa4-c946-44de-b3a9-a67fe0.png)
