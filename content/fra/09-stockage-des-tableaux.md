@@ -70,7 +70,9 @@ Cela signifie que le compilateur générera automatiquement une fonction appelé
 
 ![https://static.wixstatic.com/media/61a666_7e7dc8b8051d40f0b27eef324637a121~mv2.png/v1/fill/w_620,h_749,al_c,q_95,enc_auto/https___s3-us-west-2_amazonaws_com_secure_notion-static_com_d1f0cfa4-c946-44de-b3a9-a67fe0.png](https://static.wixstatic.com/media/61a666_7e7dc8b8051d40f0b27eef324637a121~mv2.png/v1/fill/w_620,h_749,al_c,q_95,enc_auto/https___s3-us-west-2_amazonaws_com_secure_notion-static_com_d1f0cfa4-c946-44de-b3a9-a67fe0.png)
 
-La fonction myArray() se comporte comme suit:
+Mais elle ne renverra pas le tableau entier. Elle demandera un index et renverra la valeur à cet index. 
+
+La fonction myArray se comporte comme ceci:
 
 ```solidity
 
