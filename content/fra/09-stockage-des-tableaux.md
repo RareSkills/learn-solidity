@@ -64,9 +64,9 @@ Ensuite appelez **addToArray** avec 10 comme paramètre. Puis **getLength()** 
 
 Enfin **removeFromArray()** suivi par **getLength()**. Elle retourne cette fois 6 comme vous vous y attendiez.
 
-Parce que `myArray` est `public`, Remix le fait apparaitre avec la même visibilité qu'une fonction. Mais il ne retournera pas le tableau entier. Il demande plutôt un index et retourne la valeur contenue à cet index.
+Il convient de noter que, comme myArray est public, Remix le montre comme visible en tant que fonction. 
 
-Ceci signifie que le compilateur générera automatiquement une fonction nommée myArray() qui peut être appelée pour stocker les valeurs contenues dans myArray.
+Cela signifie que le compilateur générera automatiquement une fonction appelée myArray() qui pourra être appelée pour lire les valeurs stockées dans myArray.
 
 ![https://static.wixstatic.com/media/61a666_7e7dc8b8051d40f0b27eef324637a121~mv2.png/v1/fill/w_620,h_749,al_c,q_95,enc_auto/https___s3-us-west-2_amazonaws_com_secure_notion-static_com_d1f0cfa4-c946-44de-b3a9-a67fe0.png](https://static.wixstatic.com/media/61a666_7e7dc8b8051d40f0b27eef324637a121~mv2.png/v1/fill/w_620,h_749,al_c,q_95,enc_auto/https___s3-us-west-2_amazonaws_com_secure_notion-static_com_d1f0cfa4-c946-44de-b3a9-a67fe0.png)
 
