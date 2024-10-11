@@ -125,4 +125,4 @@ La plupart du temps, vous devriez utiliser uniquement uint256. Les fois où il f
 
 Le type booléen (Boolean)
 
-Ici il n'y a rien de bien nouveau, c'est pareil que dans les autres langages. Une variable de type booléen peut contenir true(vrai) ou false(faux). Voilà tout.
+Celui-ci est assez évident, c’est comme avec d'autres langages. Une variable bool contient soit un vrai, soit un faux. C'est ainsi.
