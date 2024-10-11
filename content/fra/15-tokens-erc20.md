@@ -206,7 +206,7 @@ Maintenant introduisons le concept d'**allocation**.
 
 Une allocation autorise une adresse à dépenser les tokens de quelqu'un d'autre, jusqu'à une certaine quantité définie par celui-ci.
 
-Pourquoi autoriseriez-vous quelqu'un à dépenser vos tokens? C'est une très longue histoire, mais en résumé, demandez-vous comment vous "sauriez" que quelqu'un vous a transféré des tokens. Une fonction est juste éxécutée et un "mapping" change de valeur. Vous n'avez pas vraiment "reçu" de tokens, ils ont juste été associés à votre adresse.
+Pourquoi autoriseriez-vous quelqu'un à dépenser vos tokens? C'est une très longue histoire, mais en résumé, demandez-vous comment vous "sauriez" que quelqu'un vous a transféré des tokens. Une fonction est juste éxécutée et un mappage change de valeur. Vous n'avez pas vraiment "reçu" de tokens, ils ont juste été associés à votre adresse.
 
 Et là, comme entité extérieure à la blockchain, vous pouvez l'inspecter pour suivre les évènements qui vous rendent plus riches.
 
@@ -330,7 +330,7 @@ contract ERC20 {
 
 Déballons ce qui a été fait ici.
 
-Tout d'abord, il est possible pour le propriétaire des tokens d'appeler transferFrom. Dans ce cas, l'allocation n'est pas nécessaire, nous ne vérifions donc pas le mapping "allowance", et mettons à jour les soldes comme il se doit.
+Tout d'abord, il est possible pour le propriétaire des tokens d'appeler transferFrom. Dans ce cas, l'allocation n'est pas nécessaire, nous ne vérifions donc pas le mappage "allowance", et mettons à jour les soldes comme il se doit.
 
 Autrement, nous vérifions que le "spender" a reçu suffisamment d'allocation, puis soustrayons le montant qu'il dépense. Si nous n'avions pas soustrait ses dépenses, il aurait eu une capacité de dépense illimitée.
 

@@ -1,4 +1,4 @@
-# Mappings
+# Les mappages (mappings)
 
 `Mapping`, `Hashmap`, tableaux associatifs, `maps`, peu importe le nom que vous lui donnez, Solidity l'a.
 
@@ -25,13 +25,13 @@ contract ExampleContract {
 
 ```
 
-Ce code fait exactement ce que vous pensez. Puisque myMapping est "public", Solidity l'associe à une fonction `getter` nous permettant d'accéder aux valeurs contenues dans le mapping. Par contre, si vous souhaitez accéder au mapping en passant par une fonction, vous pouvez suivre la logique de **getValue**.
+Ce code fait exactement ce que vous pensez. Puisque myMapping est "public", Solidity l'associe à une fonction `getter` nous permettant d'accéder aux valeurs contenues dans le mappage. Par contre, si vous souhaitez accéder au mappage en passant par une fonction, vous pouvez suivre la logique de **getValue**.
 
 Voici un point surprenant :
 
-**Si vous accédez à un mapping avec une clé qui n'a pas déjà été définie, il n'y aura PAS de revert. Le mapping retournera juste la "valeur par défaut" du type de données que vous essayez d'obtenir**
+**Si vous accédez à un mappage avec une clé qui n'a pas déjà été définie, il n'y aura PAS de revert. Le mappage retournera juste la "valeur par défaut" du type de données que vous essayez d'obtenir**
 
-Dans l'exemple suivant, le mapping retournera *false* si vous l'interrogez avec un nombre qui n'a pas déjà été défini.
+Dans l'exemple suivant, le mappage retournera *false* si vous l'interrogez avec un nombre qui n'a pas déjà été défini.
 
 ```solidity
 
@@ -48,11 +48,11 @@ contract ExampleContract {
 }
 ```
 
-Je vous encourage à coller ce code sur remix, puis mettre des nombres comme clés pour voir les valeurs par défaut qui seront retournées pour chaque mapping.
+Je vous encourage à coller ce code sur remix, puis mettre des nombres comme clés pour voir les valeurs par défaut qui seront retournées pour chaque mappage.
 
 ![https://static.wixstatic.com/media/61a666_499ad0d908c24c7d8cb892b11941611e~mv2.png/v1/crop/x_2,y_0,w_1998,h_972/fill/w_939,h_457,al_c,q_95,enc_auto/Mappings.png](https://static.wixstatic.com/media/61a666_499ad0d908c24c7d8cb892b11941611e~mv2.png/v1/crop/x_2,y_0,w_1998,h_972/fill/w_939,h_457,al_c,q_95,enc_auto/Mappings.png)
 
-De la même manière, les tokens ERC20 utilisent les mappings pour stocker combien de tokens quelqu'un a! Ils lient une adresse au nombre de tokens que possède le détenteur de cette addresse.
+De la même manière, les tokens ERC20 utilisent les mappages pour stocker combien de tokens quelqu'un a! Ils lient une adresse au nombre de tokens que possède le détenteur de cette addresse.
 
 ```solidity
 
@@ -87,7 +87,7 @@ Et voici le token ApeCoin, le token de l'écosystème Bored Ape Yatch Club:
 
 [https://etherscan.io/token/0x4d224452801aced8b2f0aebe155379bb5d594381](https://etherscan.io/token/0x4d224452801aced8b2f0aebe155379bb5d594381)
 
-**Surprise 1: Les mappings peuvent être uniquement déclarés comme storage (variable de stockage), vous ne pouvez pas les déclarer à l'intérieur d'une fonction**
+**Surprise 1: Les mappages peuvent être uniquement déclarés comme storage (variable de stockage), vous ne pouvez pas les déclarer à l'intérieur d'une fonction**
 
 Ceci peut sembler très bizarre comme restriction, mais est lié au fonctionnement de la machine virtuelle Ethereum. Les blockchains en général n'aiment pas les "hashmaps" ceci dû à leur temps d'éxécution difficile à prédire. Le code suivant est invalide.
 
@@ -105,9 +105,9 @@ contract BrokenContract {
 
 ```
 
-**Surprise 2: On ne peut itérer dans un mapping**
+**Surprise 2: On ne peut itérer dans un mappage**
 
-Il n'existe pas de moyen d'itérer entre les clés d'un mapping. Chaque clé est techniquement correcte, elle renvoie juste 0 par défaut.
+Il n'existe pas de moyen d'itérer entre les clés d'un mappage. Chaque clé est techniquement correcte, elle renvoie juste 0 par défaut.
 
 ```solidity
 
@@ -127,7 +127,7 @@ contract BrokenContract {
 
 ```
 
-**Surprise 3: On ne peut retourner un mapping**
+**Surprise 3: On ne peut retourner un mappage**
 
 Le code suivant est invalide. les "maps" ne sont pas un type de retour valide pour les fonctions en solidity.
 

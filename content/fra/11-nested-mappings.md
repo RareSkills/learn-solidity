@@ -1,6 +1,6 @@
-# Nested Mappings (mappings imbriqués)
+# Nested Mappings (mappages imbriqués)
 
-Dans la plupart des langages, un "hashmap" peut contenir un autre hashmap, c'est également le cas pour Solidity. Par contre, vu que les mappings ne sont pas un type de retour valide, vous devez renseigner toutes les clés requises par le mapping.
+Dans la plupart des langages, un "hashmap" peut contenir un autre hashmap, c'est également le cas pour Solidity. Par contre, vu que les mappages ne sont pas un type de retour valide, vous devez renseigner toutes les clés requises par le mappage.
 
 Regardons un exemple.
 
@@ -32,7 +32,7 @@ contract ExampleContract {
 
 ```
 
-L'imbrication de mapping est très courante dans les contrats intelligents, contrairement aux tableaux imbriqués. Par exemple, vous pouvez faire de la comptabilité comme suit:
+L'imbrication de mappage est très courante dans les contrats intelligents, contrairement aux tableaux imbriqués. Par exemple, vous pouvez faire de la comptabilité comme suit:
 
 ```solidity
 
@@ -54,7 +54,7 @@ contract TrackDebt {
 
 Notez que l'ordre est important ici. Avec cette approche, un prêteur peut avoir plusieurs emprunteurs. Si vous avions défini `borrower` comme première clé, cela signifierait qu'un emprunteur pourrait avoir plusieurs créanciers.
 
-Les mêmes restrictions qui s'appliquent aux simples mappings s'appliquent également aux mappings imbriqués. Vous ne pouvez itérer entre les clés, les déclarer dans une fonction ou les retourner comme résultat d'une fonction.
+Les mêmes restrictions qui s'appliquent aux simples mappages s'appliquent également aux mappages imbriqués. Vous ne pouvez itérer entre les clés, les déclarer dans une fonction ou les retourner comme résultat d'une fonction.
 
 **Les mappages publics imbriqués ne fonctionnent pas**
 
@@ -62,7 +62,7 @@ Ceci est une autre particularité étrange de solidity. Solidity crée automatiq
 
 Oui. Vous avez bien lu.
 
-La solution est de rendre les mappings imbriqués `private` et les envelopper dans une fonction publique qui obtient leur valeur. Il est temps de pratiquer tout ceci!
+La solution est de rendre les mappages imbriqués `private` et les envelopper dans une fonction publique qui obtient leur valeur. Il est temps de pratiquer tout ceci!
 
 **Exercices Pratiques**
 
