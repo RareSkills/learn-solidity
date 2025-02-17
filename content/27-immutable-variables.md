@@ -6,10 +6,10 @@ If you aren’t ever going to change a variable, it’s best to explicit about y
 
 contract ExampleContract {
 
-    string immutable public name;
+    uint256 public immutable value;
 
-    constructor(string memory _name) {
-        name = _name;
+    constructor(uint256 _value) {
+        value = _value;
     }
 }
 ```
@@ -22,16 +22,16 @@ If you try to write to an immutable variable, the code will not compile.
 
 contract ExampleContract {
 
-    string immutable public name;
+    uint256 public immutable value;
 
-    constructor(string memory _name) {
-        name = _name;
+    constructor(uint256 _value) {
+        value = _value;
     }
 
     // ERROR: Cannot compile
-    function cannotChangeTheName(string calldata _newName) 
+    function cannotChangeTheName(uint256 _newValue)
             external {
-                name = _newName;
+                value = _newValue;
     }
 }
 ```
