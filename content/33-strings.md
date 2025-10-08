@@ -1,6 +1,6 @@
 # Strings
 
-Strings are dynamically-sized UTF-8 encoded bytes is also a dynamically-sized byte array. Both of which are interchangeable by just using string() to convert strings to bytes and bytes() to convert bytes to strings respectively. This greatly helps us in doing operations on string like we can with other programming languages. However since strings are UTF-8 encoded if such character requires more than one byte then it increases the difficulty in string manipulation.
+Strings are dynamically-sized UTF-8 encoded bytes is also a dynamically-sized byte array. Both of which are interchangeable by just using string() to convert strings to bytes and bytes() to convert bytes to strings respectively. This greatly helps us in doing operations on strings like we can with other programming languages. However since strings are UTF-8 encoded if such character requires more than one byte then it increases the difficulty in string manipulation.
 
 Because strings are arrays, they need the calldata or memory modifier when passed to functions, and the memory modifier when returned.
 
@@ -10,9 +10,9 @@ To check a string’s length:
 
 function stringLength(
     string memory input
-) 
-    public 
-    pure 
+)
+    public
+    pure
     returns (uint256) {
         return bytes(input).length;
         // input.length won't work
@@ -27,11 +27,11 @@ To access a string’s character:
 ```solidity
 
 function characterOfString(
-    string memory input, 
+    string memory input,
     uint256 index
-) 
-    public 
-    pure 
+)
+    public
+    pure
     returns (string memory) {
         bytes memory char = new bytes(1);
         char[0] = bytes(input)[index];
@@ -40,11 +40,11 @@ function characterOfString(
 
 ```
 
-Keep in mind this will only work if the entire string is ascii. If we pass in unicode characters that take up more than one byte, for example "你好" the code will crash.
+Keep in mind this will only work if the entire string is ASCII. If we pass in Unicode characters that take up more than one byte, for example "你好" the code will crash.
 
-Getting a character from a string is a bit harder than just indexing it like javascript or python because we have to initialise a string array of length 1 and then insert the character we want to get to the new string array. This is what the code above is doing.
+Getting a character from a string is a bit harder than just indexing it like JavaScript or Python because we have to initialise a string array of length 1 and then insert the character we want to get to the new string array. This is what the code above is doing.
 
-Solidity support unicode strings:
+Solidity supports unicode strings:
 
 ```solidity
 
@@ -55,7 +55,7 @@ contract Message {
 }
 ```
 
-Something slightly misleading is solidity is that we use "strings" to represent hex data if the hex modifier is used. The following shoes casting the hexadecimal encoding of "helloworld" to helloworld.
+Something slightly misleading in Solidity is that we use "strings" to represent hex data if the hex modifier is used. The following shows casting the hexadecimal encoding of "helloworld" to helloworld.
 
 ```solidity
 
@@ -63,9 +63,9 @@ contract HexData {
     // not a string!
     bytes hexData = hex"68656C6C6F776F726C64";
     // returns "helloworld"
-    function getMessage() 
-        public 
-        view 
+    function getMessage()
+        public
+        view
         returns (string memory) {
             return string(hexData);
     }
@@ -73,4 +73,4 @@ contract HexData {
 
 ```
 
-Concatenating strings are made easy at solidity 0.8.12 with the addition of string.concat(). Below that version, and string.concat() is not available.
+String concatenation is made easy in Solidity 0.8.12 with the addition of string.concat(). Below that version, and string.concat() is not available.
