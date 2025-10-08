@@ -5,15 +5,15 @@ Up until this point, we’ve been using tokens to represent value, but what abou
 ```solidity
 
 contract ExampleContract {
-    function payMe() 
-        public 
+    function payMe()
+        public
         payable {
 
     }
 
-    function howMuchEtherIHave() 
-        public 
-        view 
+    function howMuchEtherIHave()
+        public
+        view
         returns (uint256) {
             return address(this).balance;
     }
@@ -41,16 +41,16 @@ By the way, the `.balance` construction works on arbitrary addresses. A smart co
 
 ```solidity
 
-function howMuchEtherYouHave() 
-    public 
-    view 
+function howMuchEtherYouHave()
+    public
+    view
     returns (uint256) {
         return msg.sender.balance;
 }
 
-function howMuchEtherTheyHave(address them) 
-    public 
-    view 
+function howMuchEtherTheyHave(address them)
+    public
+    view
     returns (uint256) {
         return them.balance;
 }
@@ -63,15 +63,15 @@ Unless functions have the **payable** modifier, they will revert if they recei
 
 Why have this construction? If someone wants to send us Ether, why not accept it?
 
-This has been a subject of debate, but the general idea is that a function should constrained in such a way to have extremely well defined behavior. Anything outside of that should be restricted. The more constrained the behavior, the easier it is to reason about the smart contract’s functionality.
+This has been a subject of debate, but the general idea is that a function should be constrained in such a way to have extremely well defined behavior. Anything outside of that should be restricted. The more constrained the behavior, the easier it is to reason about the smart contract’s functionality.
 
 By the way, solidity provides a very convenient keyword for dealing with all the zeros involved with Ether. Both of these functions do the same thing, but one is more readable.
 
 ```solidity
 
-function moreThanOneEtherV1() 
-    public 
-    view 
+function moreThanOneEtherV1()
+    public
+    view
     returns (bool) {
         if (msg.sender.balance > 1 ether) {
             return true;
@@ -79,9 +79,9 @@ function moreThanOneEtherV1()
         return false;
 }
 
-function moreThanOneEtherV2() 
-    public 
-    view 
+function moreThanOneEtherV2()
+    public
+    view
     returns (bool) {
         if (msg.sender.balance > 10**18) {
             return true;
@@ -114,28 +114,28 @@ You will use the **call function we described earlier, but with an extra "meta a
 ```solidity
 
 contract ReceiveEther {
-    function takeMoney() 
-        public 
+    function takeMoney()
+        public
         payable {
 
     }
 
-    function myBalance() 
-        public 
-        view 
+    function myBalance()
+        public
+        view
         returns (uint256) {
             return address(this).balance;
     }
 }
 
 contract SendMoney {
-    constructor() 
+    constructor()
         payable {
 
     }
 
-    function sendMoney(address receiveEtherContract) 
-        public 
+    function sendMoney(address receiveEtherContract)
+        public
         payable {
             uint256 amount = myBalance();
             (bool ok, ) = receiveEtherContract.call{value: amount}(
@@ -144,9 +144,9 @@ contract SendMoney {
             require(ok, "transfer failed");
     }
 
-    function myBalance() 
-        public 
-        view 
+    function myBalance()
+        public
+        view
         returns (uint256) {
             return address(this).balance;
     }
