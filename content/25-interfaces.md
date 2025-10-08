@@ -4,7 +4,7 @@ I’m sure you thought the way we were calling other contracts with .call and ab
 
 I wanted you to go through that exercise so that you know what is happening under the hood.
 
-Now it’s time to introduce the ergonomic way Solidity enables cross contract calls.
+Now it’s time to introduce the ergonomic way Solidity enables cross-contract calls.
 
 ```solidity
 
@@ -12,17 +12,17 @@ Now it’s time to introduce the ergonomic way Solidity enables cross contract c
 contract GetSumV1 {
 
     function getSum(
-        address adder, 
-        uint256 a, 
+        address adder,
+        uint256 a,
         uint256 b
-    ) 
-        public 
+    )
+        public
         returns (uint256) {
-            (bool ok, bytes memory result) = 
+            (bool ok, bytes memory result) =
                 adder.call(
                     abi.encodeWithSignature(
-                        "add(uint256,uint256)", 
-                        a, 
+                        "add(uint256,uint256)",
+                        a,
                         b
                     )
                 );
@@ -35,21 +35,21 @@ contract GetSumV1 {
 // ----------------- V2 --------------------
 interface IAdder {
     function add(
-        uint256, 
+        uint256,
         uint256
-    ) 
-        external 
-        view 
+    )
+        external
+        view
         returns (uint256);
 }
 
 contract GetSumV2 {
     function getSum(
-        IAdder adder, 
-        uint256 a, 
+        IAdder adder,
+        uint256 a,
         uint256 b
-    ) 
-        public 
+    )
+        public
         returns (uint256) {
             return adder.add(a, b);
     }
@@ -57,11 +57,11 @@ contract GetSumV2 {
 
 contract Adder {
     function add(
-        uint256 a, 
+        uint256 a,
         uint256 b
-    ) 
-        public 
-        view 
+    )
+        public
+        view
         returns (uint256) {
             return a + b;
     }
@@ -73,7 +73,7 @@ V1 and V2 are very similar, but they have a key difference under the hood. We wi
 
 The important fact here is that V2 is much cleaner than V1!
 
-The interface nicely wraps up the abi encoding and decoding for us so that we don’t have to think about it. The interface defines the return type, which defines how the abi decoding will work, and the function signature and arguments define the abi encoding.
+The interface nicely wraps up the ABI encoding and decoding for us so that we don’t have to think about it. The interface defines the return type, which defines how the ABI decoding will work, and the function signature and arguments define the ABI encoding.
 
 Now we can abstract that all away and call another contract function as if it was just another function call.
 
@@ -106,18 +106,18 @@ contract GetSumV1 {
     // public --> external
     // added a view modifier
     function getSum(
-        address adder, 
-        uint256 a, 
+        address adder,
+        uint256 a,
         uint256 b
-    ) 
-        external 
-        view 
+    )
+        external
+        view
         returns (uint256) {
-            (bool ok, bytes memory result) = 
+            (bool ok, bytes memory result) =
                 adder.staticcall(
                     abi.encodeWithSignature(
-                        "add(uint256,uint256)", 
-                        a, 
+                        "add(uint256,uint256)",
+                        a,
                         b
                     )
                 );
@@ -131,11 +131,11 @@ contract Adder {
 
     // view changed to pure
     function add(
-        uint256 a, 
+        uint256 a,
         uint256 b
-    ) 
-        external 
-        pure 
+    )
+        external
+        pure
         returns (uint256) {
             return a + b;
     }
@@ -147,4 +147,4 @@ I know you are dreading the ABI encoding stuff, but I want to show you what happ
 
 The reader is encouraged to do state changing things inside of add to see the transaction revert.
 
-If you have a Java background, this whole bit with interfaces is probably a rather obvious. But it’s important to remember that, behind the scenes, a cross-contract call, with abi encoding, is happening. You aren’t "compiling" another smart contract into your own, like how Java objects would be combined together.
+If you have a Java background, this whole bit with interfaces is probably a rather obvious. But it’s important to remember that, behind the scenes, a cross-contract call, with ABI encoding, is happening. You aren’t "compiling" another smart contract into your own, like how Java objects would be combined together.
