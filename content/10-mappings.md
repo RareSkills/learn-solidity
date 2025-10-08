@@ -10,14 +10,14 @@ contract ExampleContract {
 
     mapping(uint256 => uint256) public myMapping;
 
-    function setMapping(uint256 key, uint256 value) 
+    function setMapping(uint256 key, uint256 value)
         public {
             myMapping[key] = value;
     }
 
-    function getValue(uint256 key) 
-        public 
-        view 
+    function getValue(uint256 key)
+        public
+        view
         returns (uint256) {
             return myMapping[key];
     }
@@ -25,7 +25,7 @@ contract ExampleContract {
 
 ```
 
-This does what you think it does. Because myMapping is public, Solidity wraps it with a getter function you can directly access the values with. However, if you want to access the map through a function, you can follow the pattern in **getValue**.
+This does what you think it does. Because myMapping is public, Solidity wraps it with a getter function you can directly access the values with. However, if you want to access the map through a function, you can follow the pattern in **getValue**.
 
 Here is the first surprising thing:
 
@@ -40,7 +40,7 @@ contract ExampleContract {
     mapping(uint256 => bool) public mapToBool;
 
     // returns 0 by default
-    mapping(uint256 => uint256) public mapToUint; 
+    mapping(uint256 => uint256) public mapToUint;
 
     // returns 0x0000000000000000000000000000000000000000 by default
     mapping(uint256 => address) public mapToAddress;
@@ -60,18 +60,18 @@ contract ERC20Token {
 
     mapping(address => uint256) public balances;
 
-    function setSomeonesBalance(address owner, uint256 amount) 
+    function setSomeonesBalance(address owner, uint256 amount)
         public {
             balances[owner] = amount;
     }
 
     function transferTokensBetweenAddresses(
-            address sender, 
-            address receiver, 
-            uint256 amount) 
+            address sender,
+            address receiver,
+            uint256 amount)
         public {
             balances[sender] -= amount;   // deduct/debit the sender's balance
-            balances[receiver] += amount; // credit the reciever's balance
+            balances[receiver] += amount; // credit the receiver's balance
     }
 }
 
@@ -79,7 +79,7 @@ contract ERC20Token {
 
 This implementation has a flaw that anyone can invoke the public functions and send tokens between addresses willy-nilly, but we’ll fix that later.
 
-Counterintuitively, **ERC20 tokens are not stored in cryptocurrency wallets, they are simply a [uint256](https://www.rareskills.io/post/uint-max-value-solidity) associated with your address in a smart contract**. "ERC20 tokens" are simply a smart contract.
+Counterintuitively, **ERC20 tokens are not stored in cryptocurrency wallets, they are simply a [uint256](https://www.rareskills.io/post/uint-max-value-solidity) associated with your address in a smart contract**. "ERC20 tokens" are simply a smart contract.
 
 Here is the smart contract for USDC, an ERC20 token: [https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48](https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48)
 
@@ -95,10 +95,10 @@ This may seem like a very odd restriction, but this has to do with how the Ether
 
 contract BrokenContract {
 
-    function wontWork() 
-        public 
+    function wontWork()
+        public
         view {
-            mapping(uint256 => uint256) someMap; 
+            mapping(uint256 => uint256) someMap;
             // This won't compile, mappings must be state variables
     }
 }
@@ -114,11 +114,11 @@ There is no way to iterate over the keys of a mapping. Every key is technically 
 contract BrokenContract {
     mapping(uint256 => uint256) public someMap;
 
-    function wontWork() 
-        public 
+    function wontWork()
+        public
         view {
-            for (uint256 key in someMap) {  
-            // Corrected to valid Solidity syntax, though the logic still 
+            for (uint256 key in someMap) {
+            // Corrected to valid Solidity syntax, though the logic still
             // won't compile in Solidity
                 // do something
             }
@@ -136,9 +136,9 @@ The following code is invalid. Maps are not a valid return type for solidity fun
 contract BrokenContract {
     mapping(uint256 => uint256) public someMap;
 
-    function wontWork() 
-        public 
-        view 
+    function wontWork()
+        public
+        view
         returns (mapping(uint256 => uint256)) {
             return someMap; // This will not compile, as mappings cannot be returned from public functions
     }
