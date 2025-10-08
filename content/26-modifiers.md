@@ -21,8 +21,8 @@ contract Ownable {
 
     function changeOwner(
         address newOwner
-    ) 
-        public 
+    )
+        public
         onlyOwner {
             owner = newOwner;
     }
@@ -30,9 +30,9 @@ contract Ownable {
 }
 
 contract HoldFunds is Ownable {
-    
-    function withdrawFunds() 
-        public 
+
+    function withdrawFunds()
+        public
         onlyOwner {
             (bool ok, ) = owner.call{
                 value: address(this).balance
@@ -40,8 +40,8 @@ contract HoldFunds is Ownable {
             require(ok, "transfer failed");
     }
 
-    receive() 
-        external 
+    receive()
+        external
         payable {
 
     }
@@ -71,4 +71,4 @@ It isn’t strictly necessary. You can put all your code into one big contract. 
 
 Modifiers can be used for things other than checking ownership, but ownership checks are the most common use case.
 
-**Don’t modify state inside modifiers.** Although solidity allows you to do this, it makes the code harder to reason about. This is considered bad practice.
+**Don’t modify state inside modifiers.** Although Solidity allows you to do this, it makes the code harder to reason about. This is considered bad practice.
