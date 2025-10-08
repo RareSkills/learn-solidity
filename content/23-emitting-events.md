@@ -12,7 +12,7 @@ This is true, events are not strictly necessary. However, they make auditing pas
 
 This is how your cryptocurrency wallet can quickly discover your ERC20 balance. It would be pretty annoying to have to look through every transaction that ever occurred on an ERC20 token to discover if you own any. But logs are stored in such a way that this retrieval is efficient.
 
-**Events cannot be seen by other smart contracts**. They are optimized for being queried offchain.
+**Events cannot be seen by other smart contracts**. They are optimized for being queried off-chain.
 
 Let’s look at an example.
 
@@ -22,8 +22,8 @@ contract ExampleContract {
 
     event Deposit(address indexed depositor, uint256 amount);
 
-    receive() 
-        external 
+    receive()
+        external
         payable {
             emit Deposit(msg.sender, msg.value);
     }
@@ -35,7 +35,7 @@ An event can have up to 3 indexed types, but there isn’t a strict limit on the
 
 If you have a database background, you can think of "indexes" exactly the same way you would about a database index.
 
-By the way, argument names after the datatype is optional. We could have written the event above as
+By the way, argument names after the datatype are optional. We could have written the event above as
 
 ```solidity
 
@@ -65,18 +65,18 @@ contract ERC20 {
     mapping(address => mapping(address => uint256)) public allowance;
 
     event Transfer(
-        address indexed _from, 
-        address indexed _to, 
+        address indexed _from,
+        address indexed _to,
         uint256 _value
     );
     event Approval(
-        address indexed _owner, 
-        address indexed _spender, 
+        address indexed _owner,
+        address indexed _spender,
         uint256 _value
     );
 
     constructor(
-        string memory _name, 
+        string memory _name,
         string memory _symbol
     ) {
         name = _name;
@@ -87,9 +87,9 @@ contract ERC20 {
     }
 
     function mint(
-        address to, 
+        address to,
         uint256 amount
-    ) 
+    )
         public {
             require(msg.sender == owner, "only owner can create tokens");
             totalSupply += amount;
@@ -99,19 +99,19 @@ contract ERC20 {
     }
 
     function transfer(
-        address to, 
+        address to,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             return helperTransfer(msg.sender, to, amount);
     }
 
     function approve(
-        address spender, 
+        address spender,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             allowance[msg.sender][spender] = amount;
             emit Approval(msg.sender, spender, amount);
@@ -120,15 +120,15 @@ contract ERC20 {
     }
 
     function transferFrom(
-        address from, 
-        address to, 
+        address from,
+        address to,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             if (msg.sender != from) {
                 require(
-                    allowance[from][msg.sender] >= amount, 
+                    allowance[from][msg.sender] >= amount,
                     "not enough allowance"
                 );
 
@@ -139,11 +139,11 @@ contract ERC20 {
     }
 
     function helperTransfer(
-        address from, 
-        address to, 
+        address from,
+        address to,
         uint256 amount
-    ) 
-        internal 
+    )
+        internal
         returns (bool) {
             require(balanceOf[from] >= amount, "not enough money");
             require(to != address(0), "cannot send to address(0)");
