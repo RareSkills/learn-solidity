@@ -1,6 +1,6 @@
 # Receive
 
-It was a bit annoying to have to abi encode a function just to send Ether. Luckily, Solidity has a nice way to handle this.
+It was a bit annoying to have to ABI encode a function just to send Ether. Luckily, Solidity has a nice way to handle this.
 
 ```solidity
 
@@ -21,42 +21,42 @@ Up until now, we’ve been using the modifier public whenever we wanted the func
 
 It must also be payable. Try deleting the payable keyword and compiling the contract. That won’t succeed.
 
-Now, how can another function send ether to it?
+Now, how can another function send Ether to it?
 
 ```solidity
 
 contract TakeMoney {
-    receive() 
-        external 
+    receive()
+        external
         payable {
 
     }
 
-    function viewBalance() 
-        public 
-        view 
+    function viewBalance()
+        public
+        view
         returns (uint256) {
             return address(this).balance;
     }
 }
 
 contract ForwardMoney {
-    function payMe() 
-        public 
+    function payMe()
+        public
         payable {
 
     }
 
-    function sendMoney(address luckyAddress) 
-        public 
+    function sendMoney(address luckyAddress)
+        public
         payable {
             uint256 myBalance = viewBalance();
             luckyAddress.call{value: myBalance}("");
     }
 
-    function viewBalance() 
-        public 
-        view 
+    function viewBalance()
+        public
+        view
         returns (uint256) {
             return address(this).balance;
     }
@@ -66,32 +66,32 @@ contract ForwardMoney {
 
 Now plug this into remix to test it out.
 
-This is a lot cleaner. No abi encoding or anything.
+This is a lot cleaner. No ABI encoding or anything.
 
-This construction is also how we send money to **wallets**. Here is a contract that allows only one address to withdraw ether.
+This construction is also how we send money to **wallets**. Here is a contract that allows only one address to withdraw Ether.
 
 ```solidity
 
 contract SaveMoney {
-    function withdrawMoney() 
-        public 
+    function withdrawMoney()
+        public
         payable {
-            require(msg.sender == 
-                0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 
+            require(msg.sender ==
+                0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,
                 "not the first remix address");
             msg.sender.call{value: viewBalance()}("");
     }
 
-    function viewBalance() 
-        public 
-        view 
+    function viewBalance()
+        public
+        view
         returns (uint256) {
             return address(this).balance;
     }
 
     // anyone can send
-    receive() 
-        external 
+    receive()
+        external
         payable {
 
     }
@@ -103,9 +103,9 @@ It might seem strange that we are doing a "function call" to a wallet, which has
 
 The convention is a bit confusing. Just remember this.
 
-**All call invocations transfer ether. But zero is a valid amount of ether to transfer.**
+**All call invocations transfer Ether. But zero is a valid amount of Ether to transfer.**
 
-In Ethereum, all function calls can transfer ether, even if the value parameter is not explicitly set. However, zero is a valid amount of ether to transfer, and can be useful in situations where no ether needs to be transferred.
+In Ethereum, all function calls can transfer Ether, even if the value parameter is not explicitly set. However, zero is a valid amount of Ether to transfer, and can be useful in situations where no Ether needs to be transferred.
 
 **Practice Problems**
 
