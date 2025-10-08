@@ -1,6 +1,6 @@
 # Launch and verify an NFT with Foundry
 
-In the video tutorial above, you put an NFT on Opensea using the Remix environment.
+In the video tutorial above, you put an NFT on OpenSea using the Remix environment.
 
 This is fine, but Remix is not ideal for production use.
 
@@ -29,8 +29,8 @@ contract FoundryNFT is ERC721 {
 
     constructor() ERC721("FoundryNFT", "FNFT") {}
 
-    function mint() 
-            external 
+    function mint()
+            external
             payable {
                     // you can add a price check here if you like
                     totalSupply++;
@@ -39,7 +39,7 @@ contract FoundryNFT is ERC721 {
 }
 ```
 
-**Installing Openzeppelin**
+**Installing OpenZeppelin**
 
 We import and inherit the Openzepplin ERC721 contract, so to install it use the following:
 
@@ -133,7 +133,7 @@ Here’s the private key of the wallet; **787ea4ec95ab4f4e66c4c4c387cd0b5fbbec8
 
 ****
 
-(This shouldn’t be used as it is considered comprised already.)
+(This shouldn’t be used as it is considered compromised already.)
 
 ### **Put the Etherscan key and private key of the wallet in your environment variables**
 
@@ -161,7 +161,7 @@ Run this script to deploy and verify the NFT contract on sepolia.
 
 source .env #load the environment variables
 
-forge create --rpc-url https://rpc2.sepolia.org --private-key $PRIVATE_KEY --etherscan-api-key $ETHERSCAN_KEY --verify src/FoundryNFT.sol:FoundryNFT 
+forge create --rpc-url https://rpc2.sepolia.org --private-key $PRIVATE_KEY --etherscan-api-key $ETHERSCAN_KEY --verify src/FoundryNFT.sol:FoundryNFT
 ```
 
 **View on Etherscan**
