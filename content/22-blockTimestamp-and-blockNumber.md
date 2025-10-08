@@ -8,9 +8,9 @@ You can get the unix timestamp on the block with the **block.timestamp.** Let�
 
 contract WhatTimeIsIt {
 
-    function timestamp() 
-        public 
-        view 
+    function timestamp()
+        public
+        view
         returns (uint256) {
             return block.timestamp;
     }
@@ -20,7 +20,7 @@ contract WhatTimeIsIt {
 
 Try it out in Remix.
 
-The number that comes back is the number of seconds since January 1, 1970 UTC, the traditional unix time. Remember, this is **seconds** not **miliseconds** as your linux desktop or other programming languages might respond with.
+The number that comes back is the number of seconds since January 1, 1970 UTC, the traditional Unix time. Remember, this is **seconds** not **milliseconds** as your Linux desktop or other programming languages might respond with.
 
 Ethereum progresses with blocks, and whichever timestamp you get back is what the validator put into the block when they produced it. Since blocks are produced every 12 seconds, the block.timestamp will roughly increment by that amount. You shouldn’t trust block.timestamp on the order of second intervals. There’s too much variation. Over the course of minutes however, it is quite reliable.
 
@@ -32,11 +32,11 @@ contract ExampleContract {
 
     uint256 public lastCall;
 
-    function hasCooldown() 
+    function hasCooldown()
         public {
             uint256 day = 60 * 60 * 24;
             require(
-                block.timestamp > lastCall + day, 
+                block.timestamp > lastCall + day,
                 "hasn't been a day"
             );
             lastCall = block.timestamp;
@@ -53,10 +53,10 @@ contract ExampleContract {
 
     uint256 public lastCall;
 
-    function hasCooldown() 
+    function hasCooldown()
         public {
             require(
-                block.timestamp > lastCall + 1 days, 
+                block.timestamp > lastCall + 1 days,
                 "hasn't been a day"
             );
             lastCall = block.timestamp; // update the last time the function was called
@@ -83,9 +83,9 @@ Etherscan shows the current blocknumber, if you want to have an idea of how larg
 
 contract ExampleContract {
 
-    function whatBlockIsIt() 
-        external 
-        view 
+    function whatBlockIsIt()
+        external
+        view
         returns (uint256) {
             return block.number;
     }
@@ -104,15 +104,15 @@ contract ExampleContract {
     // defaults to zero
     uint256 private calledAt;
 
-    function callMeFirst() 
+    function callMeFirst()
         external {
             calledAt = block.number;
     }
 
-    function callMeSecond() 
+    function callMeSecond()
         external {
             require(
-                calledAt != 0 && block.number > calledAt, 
+                calledAt != 0 && block.number > calledAt,
                 "callMeFirst() not called"
             );
     }
