@@ -5,9 +5,9 @@ Just like if statements, there is nothing surprising about `for` loops. Here is 
 ```solidity
 
 contract ExampleContract {
-    function addNumbers() 
-        public 
-        pure 
+    function addNumbers()
+        public
+        pure
         returns (uint256) {
             uint256 sum = 0;
             for (uint256 i = 0; i < 100; i++) {
@@ -24,9 +24,9 @@ Solidity also supports the `+=` operator if you prefer to do it that way.
 ```solidity
 
 contract ExampleContract {
-    function addNumbers() 
-        public 
-        pure 
+    function addNumbers()
+        public
+        pure
         returns (uint256) {
             uint256 sum = 0;
             for (uint256 i = 0; i < 100; i++) {
@@ -38,7 +38,7 @@ contract ExampleContract {
 
 ```
 
-Solidity also has while loops and do while loops but these are so rarely used that it isn’t worth mentioning them at this point.
+Solidity also has while loops and do-while loops but these are so rarely used that it isn’t worth mentioning them at this point.
 
 A very natural use-case for for loops is iterating over an array. But we haven’t introduced arrays yet, so we’ll explain it at that point.
 
@@ -47,9 +47,9 @@ Like other languages, you can do an early return from a function inside a for lo
 ```solidity
 
 contract ExampleContract {
-    function findPrimeFactor(uint256 x) 
-        public 
-        pure 
+    function findPrimeFactor(uint256 x)
+        public
+        pure
         returns (uint256) {
             // start at 2, 1 is not a prime factor
             // use <= because x might be prime
