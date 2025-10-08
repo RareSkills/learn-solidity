@@ -1,6 +1,6 @@
 # Constructor
 
-Going back to our rolling ERC20 example, we did something a little weird, we set the banker variable directly in the contract.
+Going back to our rolling ERC20 example, we did something a little weird: we set the banker variable directly in the contract.
 
 ```solidity
 
@@ -10,9 +10,9 @@ contract ERC20 {
     mapping(address => uint256) public balances;
 
     function setSomeonesBalance(
-        address owner, 
+        address owner,
         uint256 amount
-    ) 
+    )
         public {
             if (msg.sender == banker) {
                 balances[owner] = amount;
@@ -21,9 +21,9 @@ contract ERC20 {
     }
 
     function transfer(
-        address receiver, 
+        address receiver,
         uint256 amount
-    ) 
+    )
         public {
             balances[msg.sender] -= amount;
             balances[receiver] += amount;
@@ -48,7 +48,7 @@ contract ExampleContract {
 }
 ```
 
-Note that it’s "constructor()" and not "function constructor()" and we don’t specify **public** because constructors can’t be modified with things like pure, view, public, and so forth.
+Note that it’s "constructor()" and not "function constructor()" and we don’t specify **public** because constructors can’t be modified with things like pure, view, public, and so forth.
 
 If you wanted the banker to be configured by the person deploying the contract, then you could use it as a function argument.
 
@@ -90,7 +90,7 @@ contract ExampleContract {
 
 You may be tempted as a response to just use memory everywhere and not bother to use calldata. But it is worth trying to remember this for now, because calldata results in cheaper transactions (I.e. lower gas fees for the user).
 
-Also, in case you were wondering, **constructors cannot return values.**
+Also, in case you were wondering, **constructors cannot return values.**
 
 **Practice Problems**
 
