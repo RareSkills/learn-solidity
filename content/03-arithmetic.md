@@ -32,7 +32,7 @@ Subtracting, multiplying, and dividing are obvious, so I won’t insult your int
 
 **Solidity does not have floats**
 
-If you try to divide 5 by 2, you won’t get 2.5. You’ll get 2. Remember, uint256 is an unsigned Integer. So any division you do is integer division.
+If you try to divide 5 by 2, you won’t get 2.5. You’ll get 2. Remember, uint256 is an unsigned integer. So any division you do is integer division.
 
 But what if you really want to know what 10% of 200 is? That seems very reasonable for, say, calculating interest.
 
@@ -68,33 +68,33 @@ uint256 fractionOfPopulation = cityPopulation / nationPopulation;
 
 This requires a more advanced solution we will describe later.
 
-**Note:** Why doesn’t solidity support floats? Floats are not always deterministic, and blockchains must be deterministic otherwise nodes won’t agree on the outcomes of transactions. For example, if you divide 2/3, some computers will return 0.6666, and others 0.66667. This disagreement could cause the blockchain network to split up! Therefore, solidity does not allow floats.
+**Note:** Why doesn’t Solidity support floats? Floats are not always deterministic, and blockchains must be deterministic otherwise nodes won’t agree on the outcomes of transactions. For example, if you divide 2/3, some computers will return 0.6666, and others 0.66667. This disagreement could cause the blockchain network to split up! Therefore, Solidity does not allow floats.
 
 **Solidity does not underflow or overflow, it stops the execution**
 
-What happens if you try to do the following?
+What happens if you try to do the following?
 
 ```solidity
 
-function subtract(uint256 x, uint256 y) 
-        public 
-        pure 
+function subtract(uint256 x, uint256 y)
+        public
+        pure
         returns (uint256) {
             uint256 difference = x - y;
             return difference;
 }
 ```
 
-What happens if x is 2 and y is 5? You won’t get negative 3. Actually, what happens is the execution will halt with a **revert**.
+What happens if x is 2 and y is 5? You won’t get negative 3. Actually, what happens is the execution will halt with a **revert**.
 
-Solidity doesn’t throw exceptions, but you can think of a **revert** as the equivalent of an uncaught exception or a panic in other languages.
+Solidity doesn’t throw exceptions, but you can think of a **revert** as the equivalent of an uncaught exception or a panic in other languages.
 
 It used to be the case Solidity would allow overflows and underflows, but this led to enough smart contracts breaking or getting hacked that the language built overflow and underflow protection into the language. This feature was added after Solidity version 0.8.0.
 
-You’ve probably noticed by now a lot of solidity files have a line
+You’ve probably noticed by now a lot of Solidity files have a line
 
 ```solidity
-**pragma solidity ^0.8.0;**    
+**pragma solidity ^0.8.0;**
 ```
 
 This means that the source code is compiled with version 0.8.0 or later. If you see a version earlier than that, then you cannot assume overflow protection is built into the code.
