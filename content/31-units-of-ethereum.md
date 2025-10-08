@@ -27,7 +27,7 @@ By the way, even though floats are not supported in Solidity, you can specify fr
 (bool ok, ) = recipient.call{value: 0.000000001 ether}("");
 ```
 
-By the way, Ether has other names for units, like Finney and Sazbo, but these units are so rarely used, it’s better to just Google them when you need to know their value. The following values must be memorized however:
+By the way, Ether has other names for units, like Finney and Szabo, but these units are so rarely used, it’s better to just Google them when you need to know their value. The following values must be memorized however:
 
 - wei is the smallest unit of Ether.
 - 10^18 wei is 1 Ether
