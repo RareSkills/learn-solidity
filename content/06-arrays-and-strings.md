@@ -1,6 +1,6 @@
 # Introduction to arrays and strings
 
-In this section we will introduce the array data structure and the string data structure. These behave differently from the solidity datatypes we discussed earlier, so we will discuss them here.
+In this section we will introduce the array data structure and the string data structure. These behave differently from the Solidity datatypes we discussed earlier, so we will discuss them here.
 
 Syntax for declaring arrays
 
@@ -11,9 +11,9 @@ First, it should be clear that the syntax for declaring an array of numbers is u
 ```solidity
 
 contract ExampleContract {
-    function useArrayForUint256(uint256[] calldata input) 
-        public 
-        pure 
+    function useArrayForUint256(uint256[] calldata input)
+        public
+        pure
         returns (uint256[] memory) {
             return input;
     }
@@ -26,16 +26,16 @@ If you wanted an array of addresses or booleans, it would be the following:
 ```solidity
 
 contract ExampleContract {
-    function booleanArrayExample(bool[] calldata input) 
-        public 
-        pure 
+    function booleanArrayExample(bool[] calldata input)
+        public
+        pure
         returns (bool[] memory) {
             return input;
     }
 
-    function addressArrayExample(address[] calldata input) 
-        public 
-        pure 
+    function addressArrayExample(address[] calldata input)
+        public
+        pure
         returns (address[] memory) {
             return input;
     }
@@ -50,9 +50,9 @@ So what is this `calldata` and `memory` bit? First off, if you don’t include t
 contract BadContract1 {
 
     // argument is missing calldata
-    function useArrayForUint256(uint256[] input) 
-        public 
-        pure 
+    function useArrayForUint256(uint256[] input)
+        public
+        pure
         returns (uint256[] memory) {
             return input;
     }
@@ -65,9 +65,9 @@ contract BadContract1 {
 contract BadContract2 {
 
     // return type is missing memory
-    function useArrayForUint256(uint256[] calldata input) 
-        public 
-        pure 
+    function useArrayForUint256(uint256[] calldata input)
+        public
+        pure
         returns (uint256[]) {
             return input;
     }
@@ -77,7 +77,7 @@ contract BadContract2 {
 
 So what are `calldata` and `memory`?
 
-If you are familiar with C or C++, this concept will be intuitive. Memory in Solidity is like the heap in C, C++, or Rust. Arrays can have unlimited size, so storing them on the execution stack (don’t worry if you don’t know what that is), could lead to a *stackoverflow* error (not to be confused with the famous forum!).
+If you are familiar with C or C++, this concept will be intuitive. Memory in Solidity is like the heap in C, C++, or Rust. Arrays can have unlimited size, so storing them on the execution stack (don’t worry if you don’t know what that is), could lead to a *stack overflow* error (not to be confused with the famous forum!).
 
 Calldata is something unique to Solidity. It is the actual "transaction data" that is sent when someone transmits a transaction to the blockchain.
 
@@ -98,9 +98,9 @@ No surprises here.
 ```solidity
 
 contract ExampleContract {
-    function returnFirstElement(uint256[] calldata myArray) 
-        public 
-        pure 
+    function returnFirstElement(uint256[] calldata myArray)
+        public
+        pure
         returns (uint256) {
             uint256 first = myArray[0];
             return first;
@@ -120,9 +120,9 @@ This is the same as JavaScript.
 ```solidity
 
 contract ExampleContract {
-    function returnFirstElement(uint256[] calldata myArray) 
-        public 
-        pure 
+    function returnFirstElement(uint256[] calldata myArray)
+        public
+        pure
         returns (uint256) {
             uint256 len = myArray.length;
             return len;
@@ -136,9 +136,9 @@ This is also how you can loop over an array.
 ```solidity
 
 contract ExampleContract {
-    function productOfarray(uint256[] calldata myArray) 
-        public 
-        pure 
+    function productOfarray(uint256[] calldata myArray)
+        public
+        pure
         returns (uint256) {
             uint256 product = 1;
             for (uint256 i = 0; i < myArray.length; i++) {
@@ -157,9 +157,9 @@ In the previous examples, the square brackets had nothing inside of them during 
 ```solidity
 
 contract ExampleContract {
-    function productOfarray(uint256[5] calldata myArray) 
-        public 
-        pure 
+    function productOfarray(uint256[5] calldata myArray)
+        public
+        pure
         returns (uint256) {
             uint256 last = myArray[4];
             return last;
@@ -172,14 +172,14 @@ If the function is passed an array of any size other than 5, it will revert.
 
 **Strings**
 
-Strings behave very similar to arrays. In fact, they are arrays under the hood (but with some differences). Here is a function that returns the string you passed it.
+Strings behave very similarly to arrays. In fact, they are arrays under the hood (but with some differences). Here is a function that returns the string you passed it.
 
 ```solidity
 
 contract ExampleContract {
-    function echo(string calldata input) 
-        public 
-        pure 
+    function echo(string calldata input)
+        public
+        pure
         returns (string memory) {
             return input;
     }
@@ -192,9 +192,9 @@ And here is *hello world* finally.
 ```solidity
 
 contract ExampleContract {
-    function helloWorld() 
-        public 
-        pure 
+    function helloWorld()
+        public
+        pure
         returns (string memory) {
             return "Hello, world!";
     }
@@ -204,15 +204,15 @@ contract ExampleContract {
 
 **Concatenating strings**
 
-Funnily enough, solidity did not support string concatenation until February 2022 when Solidity 0.8.12 was released. If you want to do string concatenation in Solidity, make sure the pragma at the top of the file is at least 0.8.12
+Funnily enough, Solidity did not support string concatenation until February 2022 when Solidity 0.8.12 was released. If you want to do string concatenation in Solidity, make sure the pragma at the top of the file is at least 0.8.12
 
 ```solidity
 
 pragma solidity ^0.8.12;
 contract ExampleContract {
-    function useArrays(string calldata user) 
-        public 
-        pure 
+    function useArrays(string calldata user)
+        public
+        pure
         returns(string memory) {
             return string.concat("hello ", user);
     }
@@ -230,9 +230,9 @@ In languages like JavaScript or Python, you can index a string like you would an
 
 pragma solidity ^0.8.12;
 contract BadContract {
-    function useArrays(string calldata input) 
-        public 
-        pure 
+    function useArrays(string calldata input)
+        public
+        pure
         returns(string memory) {
             return input[0]; // error
     }
@@ -242,15 +242,15 @@ contract BadContract {
 
 **Strings do not support length**
 
-Solidity does not support getting the length of a string. This is because unicode characters can make the length ambiguous, and solidity represents strings as a byte array, not a sequence of characters.
+Solidity does not support getting the length of a string. This is because unicode characters can make the length ambiguous, and Solidity represents strings as a byte array, not a sequence of characters.
 
 ```solidity
 
 pragma solidity ^0.8.12;
 contract StringContract {
-    function useArrays(string calldata input) 
-        public 
-        pure 
+    function useArrays(string calldata input)
+        public
+        pure
         returns(uint256) {
             return input.length; // does not compile
     }
