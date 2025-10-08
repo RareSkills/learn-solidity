@@ -2,7 +2,7 @@
 
 We are now ready to make an ERC20 token!
 
-ERC20 tokens typically have a **name** and a **symbol**. For example, ApeCoin has the name "ApeCoin" but the symbol "APE." The name of the token generally doesn’t change, so we’ll set it in the constructor and not provide any functions to change it later. We’ll make these variables public so that anyone can check the name and symbol of the contract.
+ERC20 tokens typically have a **name** and a **symbol**. For example, ApeCoin has the name "ApeCoin" but the symbol "APE." The name of the token generally doesn’t change, so we’ll set it in the constructor and not provide any functions to change it later. We’ll make these variables public so that anyone can check the name and symbol of the contract.
 
 ```solidity
 
@@ -34,7 +34,7 @@ contract ERC20 {
 }
 ```
 
-We say "balanceOf" because that is part of the ERC20 [specification](https://eips.ethereum.org/EIPS/eip-20). ERC20 as a specification means that people can call the function "balanceOf" on your contract, supply an address, and get how many tokens that address owns.
+We say "balanceOf" because that is part of the ERC20 [specification](https://eips.ethereum.org/EIPS/eip-20). ERC20 as a specification means that people can call the function "balanceOf" on your contract, supply an address, and get how many tokens that address owns.
 
 Everyone’s balance is zero right now, so we need a way to bring tokens into existence. We’ll allow a special address, the person who deployed the contract, to create tokens at will.
 
@@ -63,7 +63,7 @@ contract ERC20 {
 
 It is general practice that the function mint() takes *to* and *amount* as the parameter argument. It allows for the contract deployer to mint tokens to other accounts. For the sake of simplicity the function mint() only allows the deployer of the mint tokens into his account.
 
-To keep track of how many tokens there are in existence, the ERC20 specification requires a public function or variable called **totalSupply** that tells us how many tokens have been created.
+To keep track of how many tokens there are in existence, the ERC20 specification requires a public function or variable called **totalSupply** that tells us how many tokens have been created.
 
 ```solidity
 
@@ -103,19 +103,19 @@ If you’ve used ERC20 tokens in your wallet, no doubt you’ve seen instances w
 
 The largest number a uint256 can represent is
 
-115792089237316195423570985008687907853269984665640564039457584007913129639935
+`115792089237316195423570985008687907853269984665640564039457584007913129639935`
 
 Let’s reduce the number a bit to make it more clear
 
-10000000000000000000000000000000000000000000000000000000000000000000000000000
+`10000000000000000000000000000000000000000000000000000000000000000000000000000`
 
 To be able to describe "decimals", we say the 18 zeros to the right are the fractional part of the coin.
 
-10000000000000000000000000000000000000000000000000000000000.000000000000000000
+`10000000000000000000000000000000000000000000000000000000000.000000000000000000`
 
 Thus, if our ERC20 has 18 decimals, we can have at most
 
-10000000000000000000000000000000000000000000000000000000000
+`10000000000000000000000000000000000000000000000000000000000`
 
 full coins, with the zeros to the right being decimals. That’s 10 octodecillion coins, or for those unfamiliar with such uselessly large numbers, that’s 1 quadrillion x 1 quadrillion x 1 quadrillion x 1 trillion.
 
@@ -196,11 +196,11 @@ contract ERC20 {
 }
 ```
 
-Aha, we snuck in an extra line of code there: **require(to != address(0), "cannot send to address(0))**
+Aha, we snuck in an extra line of code there: **require(to != address(0), "cannot send to address(0))**
 
-Why is this? Well, nobody "owns" the zero address, so tokens sent there are un-spendable. By convention, sending a token to the zero address should reduce the **totalSupply** so we want to have a separate function for that.
+Why is this? Well, nobody "owns" the zero address, so tokens sent there are unspendable. By convention, sending a token to the zero address should reduce the **totalSupply** so we want to have a separate function for that.
 
-Now we introduce a concept of **allowance**.
+Now we introduce a concept of **allowance**.
 
 **Allowance**
 
@@ -223,7 +223,7 @@ Let’s add the tracker for allowance, and a way to give allowance to another us
 contract ERC20 {
     string public name;
     string public symbol;
-    
+
     mapping(address => uint256) public balanceOf;
     address public owner;
     uint8 public decimals;
@@ -232,9 +232,9 @@ contract ERC20 {
 
     // owner -> spender -> allowance
     // this enables an owner to give allowance to multiple addresses
-    mapping(address => mapping(address => uint256)) public allowance; 
+    mapping(address => mapping(address => uint256)) public allowance;
     // just added	address public owner;
-    
+
 
     constructor(string memory _name, string memory _symbol) {
         name = _name;
@@ -334,7 +334,7 @@ First, it is possible for the owner of the coin to call transferFrom. In that ca
 
 Otherwise, we check to see the spender has been given enough allowance, then subtract the amount they are spending. If we didn’t subtract their spending, we would have unlimited spending power.
 
-There is one more cleanup to do. If we read the original specification for [EIP 20](https://eips.ethereum.org/EIPS/eip-20) it says that approve, transfer, and transferFrom must return true after they succeed. So let’s add that.
+There is one more cleanup to do. If we read the original specification for [EIP 20](https://eips.ethereum.org/EIPS/eip-20) it says that approve, transfer, and transferFrom must return true after they succeed. So let’s add that.
 
 ```solidity
 
@@ -354,7 +354,7 @@ contract ERC20 {
         public allowance;
 
     constructor(
-        string memory _name, 
+        string memory _name,
         string memory _symbol
     ) {
         name = _name;
@@ -365,25 +365,25 @@ contract ERC20 {
     }
 
     function mint(
-        address to, 
+        address to,
         uint256 amount
-    ) 
+    )
         public {
-            require(msg.sender == owner, 
+            require(msg.sender == owner,
                 "only owner can create tokens");
             totalSupply += amount;
             balanceOf[owner] += amount;
     }
 
     function transfer(
-        address to, 
+        address to,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
-            require(balanceOf[msg.sender] >= amount, 
+            require(balanceOf[msg.sender] >= amount,
                 "you aint rich enough");
-            require(to != address(0), 
+            require(to != address(0),
                 "cannot send to address(0)");
             balanceOf[msg.sender] -= amount;
             balanceOf[to] += amount;
@@ -392,10 +392,10 @@ contract ERC20 {
     }
 
     function approve(
-        address spender, 
+        address spender,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             allowance[msg.sender][spender] = amount;
 
@@ -403,19 +403,19 @@ contract ERC20 {
     }
 
     function transferFrom(
-        address from, 
-        address to, 
+        address from,
+        address to,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
-            require(balanceOf[from] >= amount, 
+            require(balanceOf[from] >= amount,
                 "not enough money");
-            require(to != address(0), 
+            require(to != address(0),
                 "cannot send to address(0)");
 
             if (msg.sender != from) {
-                require(allowance[from][msg.sender] >= amount, 
+                require(allowance[from][msg.sender] >= amount,
                     "not enough allowance");
 
                 allowance[from][msg.sender] -= amount;
@@ -430,7 +430,7 @@ contract ERC20 {
 
 ```
 
-At the risk of throwing too much information at you, there is a cleanup to this code we can do. Note that **transferFrom** and **transfer** have duplicate code in them. What can we do about that? We could factor out the balance update code into a separate function, but we need to make sure that function isn’t public or someone can steal coins!
+At the risk of throwing too much information at you, there is a cleanup to this code we can do. Note that **transferFrom** and **transfer** have duplicate code in them. What can we do about that? We could factor out the balance update code into a separate function, but we need to make sure that function isn’t public or someone can steal coins!
 
 ```solidity
 
@@ -450,7 +450,7 @@ contract ERC20 {
         public allowance;
 
     constructor(
-        string memory _name, 
+        string memory _name,
         string memory _symbol
     ) {
         name = _name;
@@ -461,30 +461,30 @@ contract ERC20 {
     }
 
     function mint(
-        address to, 
+        address to,
         uint256 amount
-    ) 
+    )
         public {
-            require(msg.sender == owner, 
+            require(msg.sender == owner,
                 "only owner can create tokens");
             totalSupply += amount;
             balanceOf[owner] += amount;
     }
 
     function transfer(
-        address to, 
+        address to,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             return helperTransfer(msg.sender, to, amount);
     }
 
     function approve(
-        address spender, 
+        address spender,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             allowance[msg.sender][spender] = amount;
 
@@ -492,14 +492,14 @@ contract ERC20 {
     }
 
     function transferFrom(
-        address from, 
-        address to, 
+        address from,
+        address to,
         uint256 amount
-    ) 
-        public 
+    )
+        public
         returns (bool) {
             if (msg.sender != from) {
-                require(allowance[from][msg.sender] >= amount, 
+                require(allowance[from][msg.sender] >= amount,
                     "not enough allowance");
 
                 allowance[from][msg.sender] -= amount;
@@ -509,15 +509,15 @@ contract ERC20 {
     }
 
     function helperTransfer(
-        address from, 
-        address to, 
+        address from,
+        address to,
         uint256 amount
-    ) 
-        internal 
+    )
+        internal
         returns (bool) {
-            require(balanceOf[from] >= amount, 
+            require(balanceOf[from] >= amount,
                 "not enough money");
-            require(to != address(0), 
+            require(to != address(0),
                 "cannot send to address(0)");
             balanceOf[from] -= amount;
             balanceOf[to] += amount;
