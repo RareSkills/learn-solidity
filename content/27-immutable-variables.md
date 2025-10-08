@@ -1,6 +1,6 @@
 # Immutable variables
 
-If you aren’t ever going to change a variable, it’s best to explicit about your intentions. Solidity has a keyword for this.
+If you aren’t ever going to change a variable, it’s best to be explicit about your intentions. Solidity has a keyword for this.
 
 ```solidity
 
@@ -14,7 +14,7 @@ contract ExampleContract {
 }
 ```
 
-**If a variable is set in the constructor and never updated, it should be immutable**
+**If a variable is set in the constructor and never updated, it should be immutable.**
 
 If you try to write to an immutable variable, the code will not compile.
 
@@ -29,7 +29,7 @@ contract ExampleContract {
     }
 
     // ERROR: Cannot compile
-    function cannotChangeTheName(string calldata _newName) 
+    function cannotChangeTheName(string calldata _newName)
             external {
                 name = _newName;
     }
