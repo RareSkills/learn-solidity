@@ -2,7 +2,7 @@
 
 We’re going to have to go on what seems like another random tangent before we can introduce our next piece of information.
 
-But I want you to understand what the following things are
+But I want you to understand what the following things are:
 
 - abi.encode
 
@@ -19,8 +19,8 @@ To motivate them, let’s create another smart contract, open the "debug" dropdo
 contract ExampleContract {
 
     function meaningOfLifeAndAllExistence()
-        public 
-        pure 
+        public
+        pure
         returns (uint256) {
             return 42;
     }
@@ -32,7 +32,7 @@ When we copy that, we get
 
 **0x92d62db5**
 
-What exactly is this? This is the **function signature** of "meaningOfLifeAndAllExistence()". We’ll learn later how this is derived.
+What exactly is this? This is the **function signature** of "meaningOfLifeAndAllExistence()". We’ll learn later how this is derived.
 
 Whenever you "call" a smart contract, you are actually sending an ethereum transaction with some data attached so the smart contract knows which function to execute.
 
@@ -45,8 +45,8 @@ Let’s look at the information from another vantage point.
 contract ExampleContract {
 
     function meaningOfLifeAndAllExistence()
-        public 
-        pure 
+        public
+        pure
         returns (bytes memory) {
             return msg.data;
     }
@@ -66,11 +66,11 @@ Makes sense right? When you fire up your browser wallet and trade ERC20 tokens, 
 
 When you "call a smart contract" you are sending data to the contract with instructions for how to execute.
 
-There are many data encodings, json, xml, protobufs, etc. **Solidity and ethereum use the ABI encoding**.
+There are many data encodings, JSON, XML, protobuf, etc. **Solidity and Ethereum use the ABI encoding**.
 
 We won’t get into the specification of ABI here. But what you need to know is that it always looks like a sequence of bytes.
 
-Functions are identified as a sequence of four bytes. Our original byte sequence **(0x92d62db5)** had four bytes in it: 92, d6, 2d, b5.
+Functions are identified as a sequence of four bytes. Our original byte sequence **(0x92d62db5)** had four bytes in it: 92, d6, 2d, b5.
 
 Remember, a byte is 8 bits, and 8 bits can be a value up to 255 (2^8 - 1). A byte, represented in hex, can go from 0x00 to 0xff. Convert 0xff to decimal, and hopefully this makes it clear.
 
@@ -84,8 +84,8 @@ But what would the data look like if it took an argument?
 
 contract ExampleContract {
     function takeOneArg(uint256 x)
-        public 
-        pure 
+        public
+        pure
         returns (bytes memory) {
             // we won't do anything with x
             return msg.data;
@@ -96,7 +96,7 @@ contract ExampleContract {
 
 We get
 
-0xf8689fd30000000000000000000000000000000000000000000000000000000000000007
+`0xf8689fd30000000000000000000000000000000000000000000000000000000000000007`
 
 returned to us. The f8689fd3 portion means call function "takeOneArg" and the 7 with a lot of leading zeros means pass the number 7.
 
@@ -113,15 +113,15 @@ Watch this.
 contract ExampleContract {
 
     function getEncoding(uint x)
-        public 
-        pure 
+        public
+        pure
         returns (bytes memory) {
             return abi.encodeWithSignature("takeOneArg()", x);
     }
-    
+
     function takeOneArg(uint256 x)
-        public 
-        pure 
+        public
+        pure
         returns (bytes memory) {
             return msg.data;
     }
@@ -140,17 +140,17 @@ Consider the following example.
 contract ExampleContract {
 
     function encodingXY(uint x, uint256 y)
-        public 
-        pure 
+        public
+        pure
         returns (bytes memory) {
             return abi.encode(x,y);
     }
-    
+
     function getATuple(bytes memory encoding)
-        public 
-        pure 
+        public
+        pure
         returns (uint256, uint256) {
-            (uint256 x, uint256 y) = abi.decode(encoding, 
+            (uint256 x, uint256 y) = abi.decode(encoding,
                 (uint256, uint256));
             return(x,y);
     }
@@ -162,7 +162,7 @@ Note that we are using "abi.encode" and "abi.decode". The "withSignature" bit is
 
 In this example, the variables x and y are abi encoded into
 
-0x0000000000000000000000000000000000000000000000000000000000000005000000000000000000000000000000000000000000000000000000000000000f
+`0x0000000000000000000000000000000000000000000000000000000000000005000000000000000000000000000000000000000000000000000000000000000f`
 
 The decimal numbers got converted to hex, which is why "5" is still "5" but 15 became "f".
 
