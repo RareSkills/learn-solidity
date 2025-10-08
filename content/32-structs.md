@@ -1,6 +1,6 @@
 # Structs
 
-Structs in Solidity behave similar to C. They group different variables within a single composite data type, which can be extremely useful in organizing data and creating more complex data structures.
+Structs in Solidity behave similarly to C. They group different variables within a single composite data type, which can be extremely useful in organizing data and creating more complex data structures.
 
 Here’s how you declare a struct in Solidity.
 
@@ -12,12 +12,12 @@ contract StructsExample {
         uint256 a;
         uint256 b;
     }
-        
+
     Foo public myFoo;
 }
 ```
 
-**myFoo** is a public variable of struct Foo, it stores both **uint256 a** and **uint256 b**. As you can see if we deploy it in remix, myFoo returns:
+**myFoo** is a public variable of struct Foo, it stores both **uint256 a** and **uint256 b**. As you can see if we deploy it in Remix, myFoo returns:
 
 ![https://static.wixstatic.com/media/c0c19a_1bbba8b3b1784a26a19574db16a82851~mv2.png/v1/fill/w_560,h_542,al_c,q_95,enc_auto/myfoo.png](https://static.wixstatic.com/media/c0c19a_1bbba8b3b1784a26a19574db16a82851~mv2.png/v1/fill/w_560,h_542,al_c,q_95,enc_auto/myfoo.png)
 
@@ -46,8 +46,8 @@ contract DepositOnly {
 
     function deposit(
         string memory _name
-    ) 
-        external 
+    )
+        external
         payable {
             balance[msg.sender] += msg.value;
             name[msg.sender] = _name;
@@ -56,11 +56,11 @@ contract DepositOnly {
 
 ```
 
-In the contract above, the depositor’s name and balance is stored into two separate **mapping** data structure.
+In the contract above, the depositor’s name and balance are stored in two separate **mapping** data structure.
 
 The address variable in the mapping is repeated twice for both the name and balance of the same msg.sender, and hence it is not efficient.
 
-So here’s where structs come in handy, we can register both the name and balance under a struct variable, and store that variable in one key value pair mapping like this.
+So here’s where structs come in handy, we can register both the name and balance under a struct variable, and store that variable in one key-value pair mapping like this.
 
 ```solidity
 
@@ -73,8 +73,8 @@ contract DepositOnly {
 
     function deposit(
         string memory _name
-    ) 
-        external 
+    )
+        external
         payable {
             depositor[msg.sender] = Person(_name, msg.value);
     }
@@ -86,7 +86,7 @@ See how useful it is? It makes your code cleaner and more efficient.
 
 **How to use Structs**
 
-Simple right? Here’s the demonstration.
+Simple, right? Here’s the demonstration.
 
 ```solidity
 
@@ -96,39 +96,39 @@ contract StructsExample {
         uint256 a;
         uint256 b;
     }
-    
+
     Foo public myFoo;
 
     function assignMyFoo(
-        uint256 _a, 
+        uint256 _a,
         uint256 _b
-    ) 
+    )
         public {
             myFoo = Foo(_a, _b);
     }
 
     function assignA(
         uint256 _a
-    ) 
+    )
         public {
             myFoo.a = _a;
     }
 
-    function accessA() 
-        public 
-        view 
+    function accessA()
+        public
+        view
         returns(uint256) {
             return myFoo.a;
     }
-    
+
 }
 
 ```
 
 If you want to pass struct Foo as an argument or as a return value, here are some rules you have to follow:
 
-- Structs passed as arguments must be declared as a memory and
-- Structs as return types must also be declared as a memory. Here’s how it looks.
+- Structs passed as arguments must be declared as memory and
+- Structs as return types must also be declared as memory. Here’s how it looks.
 
 ```solidity
 
@@ -143,14 +143,14 @@ contract StructsExample {
 
     function passStructAsArgument(
         Foo memory foo
-    ) 
+    )
         public {
             myFoo = foo;
     }
 
-    function returnAStruct() 
-        public 
-        view 
+    function returnAStruct()
+        public
+        view
         returns (Foo memory) {
             return myFoo;
     }
@@ -201,44 +201,44 @@ contract StructsExample {
     Foo[] public arrayFoo;
 
     function addFooToArray(
-        uint256 _a, 
+        uint256 _a,
         uint256 _b
-    ) 
+    )
         public {
             arrayFoo.push(Foo(_a, _b));
     }
 
     function readFooFromArray(
         uint256 _index
-    ) 
-        public 
-        view 
+    )
+        public
+        view
         returns(Foo memory){
             return arrayFoo[_index];
     }
 
     function readFooA(
         uint256 _index
-    ) 
-        public 
-        view 
+    )
+        public
+        view
         returns(uint256){
             return arrayFoo[_index].a;
     }
 
     function modifyFooA(
-        uint256 _index, 
+        uint256 _index,
         uint256 _a
-    ) 
+    )
         public {
             arrayFoo[_index].a = _a;
     }
 
     function setFooAtIndex(
-        uint256 _index, 
-        uint256 _a, 
+        uint256 _index,
+        uint256 _a,
         uint256 _b
-    ) 
+    )
         public {
             arrayFoo[_index] = Foo(_a, _b);
     }
@@ -259,9 +259,9 @@ contract StructsExample {
     mapping(address => Foo) public mappingFoo;
 
     function insertFoo(
-        uint256 _a, 
+        uint256 _a,
         uint256 _b
-    ) 
+    )
         public {
             mappingFoo[msg.sender] = Foo(_a, _b);
     }
@@ -276,9 +276,9 @@ To assign a Foo instance to an address mapping, here’s how we do it
 ```solidity
 
 function insertFoo(
-    uint256 _a, 
+    uint256 _a,
     uint256 _b
-) 
+)
     public {
         mappingFoo[msg.sender] = Foo(_a, _b);
 }
@@ -312,10 +312,10 @@ contract BuyTickets {
     mapping(address => Ticket) public tickets;
 
     function buyTicket(
-        string memory _name, 
+        string memory _name,
         uint256 _numberOfTickets
-    ) 
-        external 
+    )
+        external
         payable {
             require(msg.value == _numberOfTickets * TICKET_PRICE, "Wrong Value");
             require(_numberOfTickets <= 10, "Maximum Limit Exceeded");
@@ -327,9 +327,9 @@ contract BuyTickets {
 
     function displayTicket(
         address _ticketHolder
-    ) 
-        external 
-        view 
+    )
+        external
+        view
         returns (Ticket memory) {
             return(tickets[_ticketHolder]);
     }
