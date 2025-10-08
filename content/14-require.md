@@ -1,6 +1,6 @@
 # Require
 
-There’s just one more essential Solidity key word, and then we are ready to create our own ERC20 token.
+There’s just one more essential Solidity keyword, and then we are ready to create our own ERC20 token.
 
 Although we can use an if statement to check if inputs to a function are valid, or the correct msg.sender is calling the function, the elegant way is to use the require statement. The require statement forces the transaction to revert if some condition is not met.
 
@@ -9,9 +9,9 @@ Although we can use an if statement to check if inputs to a function are valid, 
 contract ExampleContract {
     function mustNotBeFive(
         uint256 x
-    ) 
-        public 
-        pure 
+    )
+        public
+        pure
         returns (uint256) {
             require(x != 5, "five is not valid");
             return x * 2;
@@ -20,7 +20,7 @@ contract ExampleContract {
 
 ```
 
-Try the above code out in remix.
+Try the above code out in Remix.
 
 Note that leaving out the error message is valid, but considered bad practice, because it makes understanding the failure harder.
 
@@ -29,9 +29,9 @@ Note that leaving out the error message is valid, but considered bad practice, b
 contract ExampleContract {
     function mustNotBeFive(
         uint256 x
-    ) 
-        public 
-        pure 
+    )
+        public
+        pure
         returns (uint256) {
             // valid, but bad practice
             require(x != 5);
