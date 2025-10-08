@@ -10,9 +10,9 @@ In this example, the function is receiving a rectangular grid.
 
 contract ExampleContract {
 
-    function containsAThree(uint256[][] calldata nestedArray) 
-        public 
-        pure 
+    function containsAThree(uint256[][] calldata nestedArray)
+        public
+        pure
         returns (bool) {
             for (uint256 i = 0; i < nestedArray.length; i++) {
                 for (uint256 j = 0; j < nestedArray[i].length; j++) {
@@ -27,7 +27,7 @@ contract ExampleContract {
 
 ```
 
-Here it is running in remix.
+Here it is running in Remix.
 
 ![https://static.wixstatic.com/media/c0c19a_b9ca99cdc4384a34b4ad9c56ae28e8b9~mv2.png/v1/fill/w_939,h_494,al_c,q_95,enc_auto/nested%20arrays.png](https://static.wixstatic.com/media/c0c19a_b9ca99cdc4384a34b4ad9c56ae28e8b9~mv2.png/v1/fill/w_939,h_494,al_c,q_95,enc_auto/nested%20arrays.png)
 
@@ -38,9 +38,9 @@ You can also get a 1D array from a 2D array
 contract ExampleContract {
 
     // [[1,2],[3,4],[5,6]] becomes [1,2]
-    function getRow(uint256[][] calldata nestedArray) 
-        public 
-        pure 
+    function getRow(uint256[][] calldata nestedArray)
+        public
+        pure
         returns(uint256[] memory) {
             return nestedArray[0];
     }
@@ -56,9 +56,9 @@ contract ExampleContract {
 
     // ACCEPTED: [[1,2],[3,4],[5,6]]
     // REJECTED: [[1,2,3],[4,5,6]]
-    function fixedSize(uint256[2][3] calldata nestedArray) 
-        public 
-        pure 
+    function fixedSize(uint256[2][3] calldata nestedArray)
+        public
+        pure
         returns (uint256) {
             return 0; // just for the sake of compilation
     }
@@ -73,9 +73,9 @@ What may be confusing is that when you access a specific item in an array, the o
 contract ExampleContract {
 
     // ACCEPTED: [[1,2],[3,4],[5,6]] -> returns 6
-    function getLast(uint256[2][3] calldata nestedArray) 
-        public 
-        pure 
+    function getLast(uint256[2][3] calldata nestedArray)
+        public
+        pure
         returns (uint256) {
             return nestedArray[2][1];
 
@@ -85,7 +85,7 @@ contract ExampleContract {
 
 ```
 
-Just like 1D arrays, if you access an out-of-bound area, the transaction will revert.
+Just like 1D arrays, if you access an out-of-bounds area, the transaction will revert.
 
 Note that nested arrays are extremely rare in practice. If you feel like skipping this section, feel free to.
 
