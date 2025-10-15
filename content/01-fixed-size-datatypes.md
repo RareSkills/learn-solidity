@@ -60,9 +60,9 @@ In these examples, we assigned the value to a variable and then returned it. We 
 
 ```solidity
 
-function getAddress() 
-        public 
-        pure 
+function getAddress()
+        public
+        pure
         returns (address) {
     return 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48;
 }
@@ -84,7 +84,7 @@ function getAddressFail()
 
 An address is represented as a hex string that has 40 characters in it, and always starts with 0x. A valid hex string contains the characters [0-9] or [a-f] inclusive.
 
-**Warning**: be careful when typing addresses manually. Solidity will covert 0x1 into an address with the value 0x0000000000000000000000000000000000000001. If you have an address with less than 40 hex characters, it will pad it with leading zeros.
+**Warning**: be careful when typing addresses manually. Solidity will convert 0x1 into an address with the value `0x0000000000000000000000000000000000000001`. If you have an address with less than 40 hex characters, it will pad it with leading zeros.
 
 If you create an address with more than 40 characters, it won’t compile.
 
@@ -96,7 +96,7 @@ Let’s revisit **uint256**. What exactly does that mean?
 
 The *u* means unsigned. It cannot represent negative numbers. The 256 means it can store numbers up to **256** bits large, or 2^256-1.
 
-Let’s plug that into python to see how big that number is.
+Let’s plug that into Python to see how big that number is.
 
 ```solidity
 
