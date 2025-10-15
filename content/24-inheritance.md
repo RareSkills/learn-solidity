@@ -5,9 +5,9 @@ Implementing an ERC20 contract from scratch each time would no doubt get tiring.
 ```solidity
 
 contract Parent {
-    function theMeaningOfLife() 
-        public 
-        pure 
+    function theMeaningOfLife()
+        public
+        pure
         returns (uint256) {
             return 42;
     }
@@ -27,27 +27,27 @@ Even though Child is empty, we see the function in the Child
 
 ![https://static.wixstatic.com/media/61a666_fb428cb0a1aa4236950028fcf7a1db70~mv2.png/v1/fill/w_939,h_595,al_c,q_95,enc_auto/Inheritance2.png](https://static.wixstatic.com/media/61a666_fb428cb0a1aa4236950028fcf7a1db70~mv2.png/v1/fill/w_939,h_595,al_c,q_95,enc_auto/Inheritance2.png)
 
-When a "contract" **is** "another contract", it inherits all it’s functionality.
+When a "contract" **is** "another contract", it inherits all its functionality.
 
 Like other object oriented programming languages, functions can be overridden. Here is the construction for changing the value.
 
 ```solidity
 
 contract Parent {
-    function theMeaningOfLife() 
-        public 
-        pure 
-        virtual 
+    function theMeaningOfLife()
+        public
+        pure
+        virtual
         returns (uint256) {
             return 42;
     }
 }
 
 contract Child is Parent {
-    function theMeaningOfLife() 
-        public 
-        pure 
-        override 
+    function theMeaningOfLife()
+        public
+        pure
+        override
         returns (uint256) {
             return 43;
     }
@@ -135,7 +135,7 @@ contract Child is Parent1, Parent2 {
 
 ```
 
-In case you are wondering, if the two parents had a function with the same name, the child must override it or the behavior will be ambiguous. If you end up in this situation, you probably did something wrong in your software design. So let’s not go down that road.
+In case you are wondering, if the two parents had a function with the same name, the child must override it or the behavior will be ambiguous. If you end up in this situation, you probably did something wrong in your software design. So let's not go down that road.
 
 **Private vs Internal**
 
@@ -156,7 +156,7 @@ contract Parent {
             return "foo";
     }
 
-    // error! private functions cannot be overriden, 
+    // error! private functions cannot be overridden,
     // so no point in making them virtual!
     function bar()
         private
@@ -176,10 +176,10 @@ The super keyword means "call the parent’s function." Here’s how it can be u
 ```solidity
 
 contract Parent {
-    function foo() 
-        internal 
-        pure 
-        virtual 
+    function foo()
+        internal
+        pure
+        virtual
         returns (string memory) {
             return "foo";
     }
@@ -187,11 +187,11 @@ contract Parent {
 
 contract Child is Parent {
 
-        // we have overriden foo and made it public
-    function foo() 
-        public 
-        pure 
-        override 
+        // we have overridden foo and made it public
+    function foo()
+        public
+        pure
+        override
         returns (string memory) {
             return super.foo();
     }
@@ -201,11 +201,11 @@ contract Child is Parent {
 
 If we didn’t include the super keyword here, foo() would call itself and go into infinite recursion. Try removing super and running the code in Remix. The transaction will revert because of the infinite recursion (Ethereum doesn’t let code run forever, it forcibly terminates them. The exact mechanism is an intermediate topic for later discussion).
 
-Super means "call the parent’s foo, not mine." This let’s us get all the functionality of foo without having to copy and paste the code.
+Super means "call the parent’s foo, not mine." This let's us get all the functionality of foo without having to copy and paste the code.
 
 **Calling the parent’s constructor**
 
-Solidity won’t let you inherit from a parent contract without initializing it’s constructor. Consider this situation.
+Solidity won’t let you inherit from a parent contract without initializing its constructor. Consider this situation.
 
 ```solidity
 
@@ -243,10 +243,10 @@ contract Parent {
         name = _name;
     }
 
-    function getName() 
-        public 
-        view 
-        virtual 
+    function getName()
+        public
+        view
+        virtual
         returns (string memory) {
             return name;
     }
@@ -254,10 +254,10 @@ contract Parent {
 
 //fixed
 contract Child is Parent("The Beatles") {
-    function getName() 
-        public 
-        view 
-        override 
+    function getName()
+        public
+        view
+        override
         returns (string memory) {
             return super.getName();
     }
@@ -265,7 +265,7 @@ contract Child is Parent("The Beatles") {
 
 ```
 
-Let’s summarize what we’ve learned
+Lets summarize what we’ve learned
 
 - Only virtual functions can be overridden
 - Functions that override a parent’s function must have an override modifier
@@ -293,7 +293,7 @@ contract Token is ERC20("SomeToken", "symbol") {
 
 There is a world of difference between a smart contract as a solidity object and a smart contract deployed on the blockchain.
 
-**You cannot inherit contract deployed on the blockchain.**
+**You cannot inherit a contract deployed on the blockchain.**
 
 They are binary blobs living outside of you. Because of the ambiguous terminology, some solidity developers have worried that functions and variables can be inherited and overridden by a malicious contract. **This cannot occur**. Even though we refer to deployed code as a "contract" and solidity code as a "contract" they are not the same thing.
 
