@@ -177,7 +177,7 @@ The super keyword means "call the parent’s function." Here’s how it can be u
 
 contract Parent {
     function foo() 
-        internal 
+        public
         pure 
         virtual 
         returns (string memory) {
@@ -187,7 +187,7 @@ contract Parent {
 
 contract Child is Parent {
 
-        // we have overriden foo and made it public
+    // we have overridden foo
     function foo() 
         public 
         pure 
